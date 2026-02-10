@@ -66,3 +66,12 @@ function copyEventLink() {
     navigator.clipboard.writeText(window.location.href);
     alert("تم نسخ رابط الفعالية، يمكنك مشاركته الآن!");
 }
+
+function comingSoon() {
+    const messages = [
+        "نحن نضع اللمسات الأخيرة.. انتظرونا!",
+        "المنصة تحت الإنشاء لتكون بأفضل جودة.",
+        "قريباً جداً.. ترقبوا انطلاق هذه البوابة."
+    ];
+    alert(messages[Math.floor(Math.random() * messages.length)]);
+}
