@@ -394,36 +394,89 @@ body {
     background: #0d6efd;
     border-radius: 2px;
 }
-
-.bento-slider {
+/* Bento Grid Layout */
+.bento-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 220px);
     gap: 20px;
-    height: 500px;
 }
 
-.bento-item {
-    border-radius: 25px;
-    overflow: hidden;
-    position: relative;
-    background: #eee;
+/* توزيع العناصر داخل الـ Grid */
+.bento-main {
+    grid-column: span 2;
+    grid-row: span 2;
 }
 
-.bento-main { grid-row: span 2; }
-
-.bento-content {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
+.bento-secondary {
+    grid-column: span 2;
+    grid-row: span 1;
 }
 
+.bento-small {
+    grid-column: span 2;
+    grid-row: span 1;
+}
 
 /* تأثيرات بصرية */
+.bento-item {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.bento-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.bento-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.bento-overlay-light {
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.x-small { font-size: 0.75rem; }
+
+/* Responsive Adjustments (الأهم للاستجابة) */
+@media (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    .bento-main { grid-column: span 2; height: 350px; }
+    .bento-secondary { grid-column: span 1; height: 250px; }
+    .bento-small { grid-column: span 1; height: 250px; }
+}
+
+@media (max-width: 576px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+    .bento-main, .bento-secondary, .bento-small {
+        grid-column: span 1;
+        height: 300px;
+    }
+}
+
+
 .shadow-xl {
     box-shadow: 0 20px 50px rgba(0,0,0,0.1) !important;
 }
@@ -445,7 +498,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* دائرة النبض الحمراء للمحاكاة */
 .pulse-red {
     width: 8px;
     height: 8px;
@@ -797,65 +849,59 @@ body {
 
 .footer-modern {
     position: relative;
+    background-color: transparent;
 }
 
 /* الكرت العائم */
 .footer-cta-card {
-    border: 8px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(20px);
+    position: relative;
+    z-index: 3;
+    margin-bottom: -60px; /* سحب الفوتر تحته بدقة */
 }
 
+/* الجزء الأساسي للفوتر */
 .footer-main {
-    border-radius: 80px 80px 0 0; /* الانحناء العلوي الضخم */
-    padding-top: 100px;
+    border-radius: 60px 60px 0 0; /* انحناء أقل للموبايل */
+    position: relative;
+    z-index: 1;
 }
 
-/* روابط الفوتر */
-.footer-links li {
-    margin-bottom: 12px;
-}
-
+.footer-links li { margin-bottom: 10px; }
 .footer-links a {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
+.footer-links a:hover { color: #0d6efd; padding-right: 5px; }
 
-.footer-links a:hover {
-    color: #0d6efd;
-    padding-right: 10px;
-}
-
-/* أيقونات التواصل الاجتماعي */
 .social-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-decoration: none;
-    transition: all 0.3s ease;
 }
 
-.social-icon:hover {
-    background: #0d6efd;
-    color: white;
-    transform: translateY(-5px);
-}
-
-.mb-n5 {
-    margin-bottom: -5rem !important;
-}
-
-.z-index-2 {
-    z-index: 2;
-}
-
+/* استعلامات الاستجابة (Responsive Media Queries) */
 @media (max-width: 768px) {
     .footer-main {
-        border-radius: 40px 40px 0 0;
+        border-radius: 30px 30px 0 0; /* انحناء أصغر ليناسب شاشة الموبايل */
     }
+    
+    .footer-cta-card {
+        margin-bottom: -80px;
+        padding: 30px 20px !important;
+    }
+
+    .h4-mobile { font-size: 1.25rem; }
+    .small-mobile { font-size: 0.85rem; }
+    
+    /* جعل الزر يأخذ العرض الكامل في الموبايل الصغير */
+    .w-xs-100 { width: 100%; }
 }
+
+/* منع خروج العناصر عن الحواف */
