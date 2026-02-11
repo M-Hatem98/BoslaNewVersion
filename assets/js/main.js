@@ -75,3 +75,22 @@ function comingSoon() {
     ];
     alert(messages[Math.floor(Math.random() * messages.length)]);
 }
+
+var swiper = new Swiper(".partnersSwiper", {
+            loop: true,
+            loopedSlides: 8,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            speed: 4000,
+            slidesPerView: 2,
+            spaceBetween: 30,
+            breakpoints: {
+                576: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 6 }
+            },
+            allowTouchMove: true,
+            freeMode: false,
+        });
