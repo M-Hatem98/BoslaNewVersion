@@ -14,6 +14,9 @@
     --p-grad: linear-gradient(135deg, #0d6efd 0%, #003d99 100%);
 }
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     direction: rtl;
     text-align: right;
@@ -160,7 +163,6 @@ body {
     height: 100%;
     z-index: 1;
 
-    /* Full-width responsive SVG Mask */
     -webkit-mask-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 1000' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M 0,0 L 1440,0 L 1440,820 C 1100,980 900,650 720,850 C 400,1050 200,750 0,920 Z' fill='black'/></svg>");
     mask-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 1000' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M 0,0 L 1440,0 L 1440,820 C 1100,980 900,650 720,850 C 400,1050 200,750 0,920 Z' fill='black'/></svg>");
 
@@ -204,11 +206,14 @@ body {
 
 
 /* Service Card Animations */
+.portals-section {
+    scroll-margin-top: 100px;
+}
 .service-card {
     background: linear-gradient(135deg, #1a1a1a 0%, #112a62 100%);
     border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 24px;
-    padding: 40px 30px;
+    padding:  15px;
     transition: var(--transition-smooth);
     height: 100%;
     display: flex;
@@ -219,14 +224,14 @@ body {
 }
 
 .card-icon {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     background: rgba(253, 253, 253, 0.584);
     border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     transition: var(--transition-smooth);
     -webkit-transition: var(--transition-smooth);
     -moz-transition: var(--transition-smooth);
@@ -235,7 +240,7 @@ body {
 }
 
 .service-card i {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     color: #fff;
     transition: var(--transition-smooth);
 }
@@ -261,13 +266,35 @@ body {
     margin-bottom: 25px;
 }
 
+.custom-tabs .nav-link {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.custom-tabs .nav-link.active {
+    background-color: #ff8c00 !important; /* لونك البرتقالي */
+    border-color: #ff8c00;
+    color: #fff !important;
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+}
+
+.custom-tabs .nav-link:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
 
 .bg-orange {
-    background-color: #FAB95B !important;
+    background-color: #ff8c00 !important;
 }
 
 .text-orange {
-    color: #FAB95B !important;
+    color: #ff8c00 !important;
 }
 
 .bg-dark-blue {
@@ -875,7 +902,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     margin-bottom: 25px;
     transition: transform 0.3s ease;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
 }
 
 .event-ticket:hover {
@@ -911,7 +938,7 @@ body {
     position: absolute;
     width: 24px;
     height: 24px;
-    background: var(--bosla-bg-light);
+    background:#0F60D7;
     border-radius: 50%;
     left: -13px;
     z-index: 2;
@@ -947,6 +974,7 @@ body {
     .ticket-divider::after {
         top: -13px;
         left: auto;
+        background: #0F60D7;
     }
 
     .ticket-divider::before {

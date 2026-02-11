@@ -31,25 +31,10 @@
                             <i class="fas fa-th-large"></i> الرئيسية
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link-custom dropdown-toggle" id="servicesDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link-custom">
                             <i class="fas fa-cubes"></i> خدماتنا
                         </a>
-                        <ul class="dropdown-menu border-0 shadow-lg magic-dropdown" aria-labelledby="servicesDropdown">
-                            <li>
-                                <a class="dropdown-item magic-item" href="veterinary-services.html">
-                                    <div class="icon-box"><i class="fas fa-hand-holding-medical"></i></div>
-                                    <span>خدمات بيطرية</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item magic-item" href="business-services.html">
-                                    <div class="icon-box"><i class="fas fa-briefcase"></i></div>
-                                    <span>خدمات الشركات</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <li class="nav-item mx-lg-4">
@@ -78,30 +63,30 @@
             <p class="lead mb-5 fs-4">منصة متكاملة للأعمال البيطرية</p>
 
             <div class="row g-4 justify-content-center">
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card bg-dark-blue p-4 rounded-4 border-0 shadow-lg">
                         <i class="fas fa-stethoscope text-orange mb-3 fa-2x"></i>
-                        <h5 class="fw-bold text-white">طبيب الدواجن AI </h5>
+                        <h5 class="fw-bold text-white">طبيب الدواجن بالذكاء الأصطناعى</h5>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card bg-dark-blue p-4 rounded-4 border-0 shadow-lg">
                         <i class="fas fa-shopping-basket text-orange mb-3 fa-2x"></i>
-                        <h5 class="fw-bold text-white">سوق المنتجات</h5>
+                        <h5 class="fw-bold text-white">متجر الأدوية ومستلزمات المزارغ</h5>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card bg-dark-blue p-4 rounded-4 border-0 shadow-lg">
                         <i class="fas fa-briefcase text-orange mb-3 fa-2x"></i>
-                        <h5 class="fw-bold text-white">فرص العمل</h5>
+                        <h5 class="fw-bold text-white">منصة التوظيف</h5>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="card bg-dark-blue p-4 rounded-4 border-0 shadow-lg">
                         <i class="fas fa-microphone-lines text-orange mb-3 fa-2x"></i>
                         <h5 class="fw-bold text-white">بودكاست بوصلة</h5>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -109,91 +94,154 @@
             <div class="hero-image-fill"></div>
         </div>
     </header>
-    <section class="container py-5 portals-section">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold text-white">بوابات النظام المتكامل</h2>
-            <p class="text-white">منصات رقمية متكاملة لخدمة النظام البيئي الزراعي بالكامل</p>
-            <div class="bg-orange mx-auto" style="width: 60px; height: 4px; border-radius: 2px;"></div>
+    <section class="container py-5 portals-section" id="services">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-white">منصات النظام المتكامل</h2>
+        <p class="text-white">منصات رقمية متكاملة لخدمة النظام البيئي الزراعي بالكامل</p>
+        <div class="bg-orange mx-auto" style="width: 60px; height: 4px; border-radius: 2px;"></div>
+    </div>
+
+    <ul class="nav nav-pills justify-content-center mb-5 custom-tabs" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-business-tab" data-bs-toggle="pill" data-bs-target="#pills-business" type="button" role="tab">خدمات الشركات</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-farmers-tab" data-bs-toggle="pill" data-bs-target="#pills-farmers" type="button" role="tab">خدمات المزارع والمربين</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-shared-tab" data-bs-toggle="pill" data-bs-target="#pills-shared" type="button" role="tab">خدمات مشتركة</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-4" id="pills-tabContent">
+        
+        <div class="tab-pane fade show active" id="pills-business" role="tabpanel">
+            <div class="row g-4 justify-content-start">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="window.location.href='poultry-doctor.html'">
+                        <div class="card-icon"><i class="fas fa-robot"></i></div>
+                        <h4>منصة التوظيف</h4>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h4>الاستشارات التسويقية والفنية</h4>
+                        <span class="text-orange fw-bold">اطلب الخدمة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h4>تحليل السوق البيطري والبورصة بالذكاء الاصطناعي</h4>
+                        <span class="text-orange fw-bold">اطلب الخدمة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h4>خدمات الشركات المتقدمة</h4>
+                        <span class="text-orange fw-bold">اطلب الخدمة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h4>الأبحاث التسويقية</h4>
+                        <span class="text-orange fw-bold">اطلب الخدمة ←</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h4>متجر الأدوية ومستلزمات المزارع</h4>
-                    <p>أكبر منصة B2B لتجارة الأدوية البيطرية والمستلزمات والمعدات الزراعية المتخصصة.</p>
-                    <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">تصفح المنتجات ←</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card ">
-                    <div class="card-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h4>طبيب الدواجن بالذكاء الأصطناعى</h4>
-                    <p>تشخيص صحة الدواجن ودعم القرار البيطري المدعوم بالذكاء الاصطناعي للتحليل الدقيق.</p>
-                    <div class="d-flex justify-content-between align-items-center mt-auto">
-                        <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">زيارة المنصة ←</a>
-                        <span class="badge rounded-pill bg-info-soft text-info">ذكاء اصطناعي</span>
+        <div class="tab-pane fade" id="pills-farmers" role="tabpanel">
+            <div class="row g-4 justify-content-start">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-vial"></i></div>
+                        <h4>خدمات المزارع</h4>
+                        <span class="text-orange fw-bold">اطلب الخدمة ←</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-user-tie"></i>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="window.location.href='poultry-doctor.html'">
+                        <div class="card-icon"><i class="fas fa-robot"></i></div>
+                        <h4>طبيب الدواجن بالذكاء الاصطناعي</h4>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                            <span class="badge rounded-pill bg-info-soft text-info">ذكاء اصطناعي</span>
+                        </div>
                     </div>
-                    <h4>منصة التوظيف</h4>
-                    <p>ربط الكفاءات والمواهب بالمؤسسات والشركات الكبرى في المجال البيطري والزراعي.</p>
-                    <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">استكشف الوظائف ←</a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                        <h4>بيع وشراء وتأجير مزارع وأدوات مستعملة</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <h4>تطهير وتطوير المزارع</h4>
-                    <p>خدمات معملية متطورة ورفع كفاءة المزارع لضمان أعلى معايير الجودة والإنتاج.</p>
-                    <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">اطلب الخدمة ←</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h4>أكاديمية بوصلة</h4>
-                    <p>برامج تدريبية شاملة، إدارة الأعمال الزراعية، وشهادات معتمدة لتطوير المعرفة المتخصصة.</p>
-                    <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">ابدأ التعلم ←</a>
-                </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-6">
-                <div class="service-card">
-                    <div class="card-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <h4>التوكيلات والتصدير</h4>
-                    <p>حلول متكاملة للتوكيلات التجارية وفتح أسواق التصدير العالمية للأعمال الزراعية.</p>
-                    <a href="#" class="stretched-link text-orange fw-bold text-decoration-none">توسع عالمياً ←</a>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-warning rounded-pill px-5 fw-bold"
-                    onclick="alert('سيكون متاحاً قريباً!')">
-                    عرض كل الخدمات <i class="fas fa-arrow-left ms-2"></i>
-                </button>
-            </div>
-
+            
         </div>
+
+        <div class="tab-pane fade" id="pills-shared" role="tabpanel">
+            <div class="row g-4 justify-content-start">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+                        <h4>1.	المتجر البيطري الشامل</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>الكتب والمجلات والنشرات العلمية</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>المجلات</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>أكاديمية بوصلة</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>الفعاليات والمؤتمرات</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>بودكاست بوصلة</h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card" onclick="comingSoon()">
+                        <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h4>منصة التوظيف </h4>
+                        <span class="text-orange fw-bold">زيارة المنصة ←</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
     </section>
     <section class="recruitment-section py-5">
         <div class="container">
@@ -764,10 +812,9 @@
             </div>
         </div>
     </section>
-
     <section class="container py-5 events-section">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">المؤتمرات والفعاليات القادمة</h2>
+            <h2 class="fw-bold text-white">المؤتمرات والفعاليات القادمة</h2>
             <div class="blue-line-accent mx-auto"></div>
         </div>
 
@@ -868,13 +915,14 @@
             </div>
         </div>
     </section>
-    <section class="container mb-5">
-        <div class="text-center">
-            <span class="badge  text-orange px-3 py-2 mb-2 rounded-pill">شركاء النجاح</span>
+    <section>
+        <div class="container mb-5">
+            <div class="text-center">
+                <span class="badge  text-orange px-3 py-2 mb-2 rounded-pill">شركاء النجاح</span>
             <h2 class="fw-bold text-white">نعتز بثقتهم في بوصلة</h2>
             <div class="blue-line-accent mx-auto"></div>
         </div>
-    </section>
+    </div>
     <div class="swiper partnersSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="assets/Images/logo.png" alt="P1"></div>
@@ -893,6 +941,7 @@
             <div class="swiper-slide"><img src="assets/Images/logo.png" alt="P4"></div>
         </div>
     </div>
+    </section>
     <footer class="footer-modern mt-5 overflow-hidden">
         <div class="container position-relative z-index-2">
             <div class="footer-cta-card bg-primary rounded-5 p-4 p-md-5 shadow-lg text-white text-center mx-2">
