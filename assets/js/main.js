@@ -114,3 +114,34 @@ counters.forEach(counter => {
     // تشغيل العداد عند ظهور القسم (اختياري باستخدام Intersection Observer)
     updateCount(); 
 });
+
+
+function sendToWhatsApp() {
+    // 1. استخراج البيانات من الحقول الجديدة والقديمة
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value;
+
+    // التأكد من ملء الحقول المطلوبة قبل الإرسال
+    if(!name || !phone || !message) {
+        alert("يرجى ملء الحقول الأساسية (الاسم، الهاتف، والرسالة)");
+        return;
+    }
+
+    // 2. رقم الواتساب الخاص بك
+    const phoneNumber = "201001226683"; 
+
+    // 3. صياغة الرسالة بشكل احترافي ومنظم
+    const text = `*طلب تواصل جديد من موقع بوصلة*%0A%0A` +
+                 `* الاسم:* ${name}%0A` +
+                 `* الهاتف:* ${phone}%0A` +
+                 `* البريد:* ${email}%0A` +
+                 `* الخدمة:* ${service}%0A` +
+                 `* الرسالة:* ${message}`;
+
+    // 4. إنشاء الرابط وفتحه
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+    window.open(whatsappURL, '_blank').focus();
+}

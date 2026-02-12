@@ -1038,6 +1038,49 @@ body {
     background: linear-gradient(to left, white, transparent);
 }
 
+/* اللون الأزرق الداكن الخاص بك */
+.bg-dark-blue {
+    background-color: #001f3f !important; /* أو الدرجة التي تستخدمها في الهيدر */
+}
+
+/* تنسيق زر الأكورديون في الوضع المظلم */
+.custom-faq-dark .accordion-button {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    padding: 22px 25px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* عند فتح السؤال */
+.custom-faq-dark .accordion-button:not(.collapsed) {
+    background-color: #0d6efd;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.2);
+}
+
+/* محتوى الإجابة */
+.custom-faq-dark .accordion-body {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    line-height: 1.8;
+}
+
+/* سهم الأكورديون (تحويله للون الأبيض) */
+.custom-faq-dark .accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+/* تأثير التحويم السحري */
+.custom-faq-dark .accordion-item:hover .accordion-button.collapsed {
+    border-color: #ff8c00;
+    transform: translateX(-5px);
+    background-color: rgba(255, 140, 0, 0.05);
+}
+
 .footer-modern {
     position: relative;
     background-color: transparent;
@@ -1230,3 +1273,15 @@ body {
 .text-orange { color: #ff8c00; }
 .bg-orange { background-color: #ff8c00; }
 
+/* **************contact us *************** */
+
+.contact-info-card {
+    background: linear-gradient(135deg, #0d6efd 0%, #003a8c 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: #0d6efd;
+}
