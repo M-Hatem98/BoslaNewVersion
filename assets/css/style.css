@@ -1000,9 +1000,10 @@ body {
 .swiper-slide img {
     height: 80px;
     width: auto;
-    /* filter: grayscale(1); */
-    opacity: 0.5;
+    filter: grayscale(1);
+    /* opacity: 0.5; */
     transition: 0.3s ease;
+    -webkit-filter: grayscale(1);
 }
 
 .swiper-slide img:hover {
@@ -1104,92 +1105,128 @@ body {
     }
 }
 
-/* veterinary-services-Page */
-
-/* الخلفية العامة للقسم */
-.vet-hero {
-    background: linear-gradient(to bottom, #f0f7ff 0%, #ffffff 100%);
-}
-
-/* تصميم الكارت */
-.vet-card {
-    background: #fff;
-    border-radius: 25px; /* حواف دائرية ناعمة */
-    padding: 40px;
-    height: 100%;
-    border: 1px solid rgba(13, 110, 253, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-    transition: all 0.4s ease;
-    cursor: pointer;
+/* ********* About Us Page ******** */
+/* الهيدر الفرعي لصفحة من نحن */
+.hero-about-sub {
     position: relative;
-    overflow: hidden;
-}
-
-.vet-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(13, 110, 253, 0.1);
-    border-color: #0d6efd;
-}
-
-/* أيقونة الكارت */
-.vet-card-icon {
-    width: 70px;
-    height: 70px;
-    background: #0d6efd;
-    color: #fff;
+    width: 100%;
+    height: 60vh; /* ارتفاع أقل لصفحة فرعية */
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    border-radius: 18px;
-    margin-bottom: 25px;
+    /* background-color: #fff; */
+    overflow: hidden;
+}
+
+/* القناع (Mask) بشكل موجة جديدة */
+.wave-mask-wrapper-sub {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    /* شكل موجة جديدة (انحناء واحد انسيابي) */
+    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 600' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M 0,0 L 1440,0 L 1440,450 C 1000,600 500,300 0,550 Z' fill='black'/></svg>");
+    mask-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1440 600' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'><path d='M 0,0 L 1440,0 L 1440,450 C 1000,600 500,300 0,550 Z' fill='black'/></svg>");
+
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+}
+
+/* تعبئة الصورة مع نفس حركة الـ Ken Burns للمحافظة على التناسق */
+.hero-image-fill-sub {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 43, 91, 0.8), rgba(0, 43, 91, 0.5)), url('../Images/hero.jpeg'); /* يمكنك تغيير الصورة هنا */
+    background-size: cover;
+    background-position: center;
+    animation: kenBurns 10s ease-in-out infinite alternate;
+}
+
+/* المحتوى */
+.hero-about-sub .hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    margin-bottom: 50px; /* لرفع النص قليلاً بعيداً عن حافة الموجة */
+}
+
+/* استجابة الموبايل لصفحة من نحن */
+@media (max-width: 768px) {
+    .hero-about-sub {
+        height: 50vh;
+    }
+}
+.value-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 20px rgba(255, 255, 255, 0.257);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.822);
+    color: #ff8c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 12px;
+    margin: 0 auto 20px;
     transition: 0.3s;
 }
 
-.vet-card:hover .vet-card-icon {
-    transform: scale(1.1) rotate(-5deg);
-    background: #0056b3;
+.value-card:hover .value-icon {
+    background: #ff8c00;
+    color: #fff !important;
 }
 
-.vet-card h3 {
-    font-weight: 800;
-    margin-bottom: 15px;
-    color: #212529;
+/* تنسيق قسم القيم */
+.value-card-simple {
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.4s ease;
 }
 
-.vet-card p {
-    color: #6c757d;
-    line-height: 1.8;
+.value-card-simple:hover {
+    border-color: #ff8c00;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
 }
 
-/* القائمة الجانبية داخل الكارت */
-.vet-features {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.vet-features li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #495057;
-}
-
-.vet-features li i {
+.value-icon-circle {
+    width: 70px;
+    height: 70px;
+    background: rgba(13, 110, 253, 0.05);
     color: #0d6efd;
-    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    transition: 0.3s;
 }
 
-/* لمسة سحرية للخلفية */
-.vet-card::after {
-    content: "";
-    position: absolute;
-    bottom: -20px;
-    left: -20px;
-    width: 100px;
-    height: 100px;
-    background: rgba(13, 110, 253, 0.02);
-    border-radius: 50%;
-    z-index: 0;
+.value-card-simple:hover .value-icon-circle {
+    background: #0d6efd;
+    color: #fff;
+    transform: scale(1.1);
 }
+
+/* لون البرتقالي المخصص */
+.border-orange { border-color: #ff8c00 !important; }
+.text-orange { color: #ff8c00; }
+.bg-orange { background-color: #ff8c00; }
+
