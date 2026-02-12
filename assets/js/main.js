@@ -1,3 +1,12 @@
+// كود بسيط لضبط مكان النافبار بناءً على وجود شريط الإعلانات
+window.addEventListener('load', () => {
+    const barHeight = document.querySelector('.announcement-bar').offsetHeight;
+    const navbar = document.querySelector('.navbar.fixed-top');
+    if(navbar) {
+        navbar.style.top = barHeight + 'px';
+    }
+});
+
 window.addEventListener("scroll", function () {
   const nav = document.querySelector(".bosla-nav");
   if (window.scrollY > 50) {

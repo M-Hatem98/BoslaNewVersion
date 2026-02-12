@@ -27,6 +27,48 @@ body {
     overflow-x: hidden;
 }
 
+.announcement-bar {
+    background-color: #ff8c00; /* لون البرتقالي الخاص ببوصلة */
+    color: #ffffff;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1050; /* للتأكد من ظهوره فوق كل شيء */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.announcement-bar a {
+    transition: all 0.3s ease;
+}
+
+.announcement-bar a:hover {
+    color: #002b5b !important; /* يتغير للون الكحلي عند التحويم */
+}
+
+.announcement-bar .badge {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: pulse-orange 2s infinite;
+}
+
+/* حركة نبض بسيطة لجذب الانتباه للبادج */
+@keyframes pulse-orange {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* تأكد من أن الـ Navbar لا يغطي البار إذا كان Fixed */
+.navbar.fixed-top {
+    top: 40px; /* اضبط هذه القيمة حسب ارتفاع البار */
+}
+
+@media (max-width: 768px) {
+    .announcement-bar {
+        font-size: 0.8rem;
+    }
+}
+
 /* Glassmorphism Header */
 .bosla-nav {
     background: #ffffff;
