@@ -274,6 +274,14 @@ document.addEventListener('DOMContentLoaded', function() {
         stats: "+١٣٠٠ قراءة",
         url: "https://online.fliphtml5.com/karxs/find/"
     },
+    "7": {
+        title: "المختبر البيطرى",
+        subtitle: "الجلد العقدي يحاصر المحافظات",
+        desc: "كيف تراقب الحالة الصحية لقطيع من دجاجك ؟",
+        date: "فبراير ٢٠٢٠",
+        stats: "+١٣٠٠ قراءة",
+        url: "https://online.fliphtml5.com/karxs/jnfx"
+    },
     "6": {
         title: "دواجن وماشية مصر أفريقيا",
         subtitle: "إنطلاق معرض جرو إكسبو ٣-٥ مايو",
@@ -289,6 +297,38 @@ document.addEventListener('DOMContentLoaded', function() {
         date: "فبراير ٢٠٢٠",
         stats: "+١٣٠٠ قراءة",
         url: "https://online.fliphtml5.com/karxs/5-Wzh4/"
+    },
+    "4": {
+        title: "دواجن وماشية مصر أفريقيا",
+        subtitle: "ترشيد استخدام الدواء في علاج الحيوان",
+        desc: "مواصفات الكتكوت الجيد وأخطاء التحضين",
+        date: "فبراير ٢٠٢٠",
+        stats: "+١٣٠٠ قراءة",
+        url: "https://online.fliphtml5.com/karxs/dbyp/"
+    },
+    "3": {
+        title: "دواجن وماشية مصر أفريقيا",
+        subtitle: "تأثير الحرعلى الطيور",
+        desc: "الصعيد والاستثمار .. رؤية خاصة ..",
+        date: "فبراير ٢٠٢٠",
+        stats: "+١٣٠٠ قراءة",
+        url: "https://online.fliphtml5.com/karxs/qpwx/"
+    },
+    "2": {
+        title: "دواجن وماشية مصر أفريقيا",
+        subtitle: "معرض دواجن السودان وفرص النجاح",
+        desc: "الخطايا العشر في صناعة الدواجن",
+        date: "فبراير ٢٠٢٠",
+        stats: "+١٣٠٠ قراءة",
+        url: "https://online.fliphtml5.com/karxs/xlec/"
+    },
+    "1": {
+        title: "دواجن وماشية مصر أفريقيا",
+        subtitle: "خبراء ومربين هيكلة صناعة الدواجن هى الحل",
+        desc: "ملامح الثروة الحيوانية فى باكستان",
+        date: "فبراير ٢٠٢٠",
+        stats: "+١٣٠٠ قراءة",
+        url: "https://online.fliphtml5.com/karxs/kpbg/"
     },
 };
 
@@ -458,18 +498,20 @@ function closeVideo() {
   if (ticket) {
     if (ticket.value === 'standard') ticketText = '🎟️ تذكرة الحضور — 100 جنيه';
     else if (ticket.value === 'transport') ticketText = '🚌 تذكرة الانتقالات — 300 جنيه';
+    else if (ticket.value === 'trans_meal') ticketText = '🚌🍔 انتقالات ووجبة — 400 جنيه'; // الإضافة هنا
     else if (ticket.value === 'premium') ticketText = '⭐ تذكرة مميزة — 350 جنيه';
   }
   document.getElementById('sum_ticket').textContent = ticketText;
 }
     // Watch ticket change to update summary + InstaPay amount
-  document.querySelectorAll('input[name="ticket"]').forEach(r => {
+ document.querySelectorAll('input[name="ticket"]').forEach(r => {
   r.addEventListener('change', () => {
     fillSummary();
     const badge = document.getElementById('ip-amount-badge');
     if (badge) {
       if (r.value === 'premium') badge.textContent = '350 جنيه';
       else if (r.value === 'transport') badge.textContent = '300 جنيه';
+      else if (r.value === 'trans_meal') badge.textContent = '400 جنيه'; // السعر الجديد
       else badge.textContent = '100 جنيه';
     }
   });
@@ -509,10 +551,11 @@ function closeVideo() {
         topics: document.getElementById('ff_topics').value.trim(),
         ticketType: ticket ? ticket.value : '',
     ticketLabel: ticket ? (
-        ticket.value === 'standard' ? 'تذكرة الحضور — 100 جنيه' : 
-        ticket.value === 'transport' ? 'تذكرة شاملة الانتقالات — 300 جنيه' : 
-        'تذكرة مميزة — 350 جنيه'
-    ) : '',
+    ticket.value === 'standard' ? 'تذكرة الحضور — 100 جنيه' : 
+    ticket.value === 'transport' ? 'تذكرة شاملة الانتقالات — 300 جنيه' : 
+    ticket.value === 'trans_meal' ? 'تذكرة الانتقالات والوجبة — 400 جنيه' : // الإضافة هنا
+    'تذكرة مميزة — 350 جنيه'
+) : '',
 };
 
       // Show loading
@@ -568,17 +611,15 @@ function closeVideo() {
     }
 
     // Ticket select from ticket cards
-   function selectTicketAndScroll(type) {
+ function selectTicketAndScroll(type) {
   let id = 'tk_std';
   if (type === 'premium') id = 'tk_prm';
   if (type === 'transport') id = 'tk_trans';
+  if (type === 'trans_meal') id = 'tk_trans_meal'; // الإضافة هنا
   
   const r = document.getElementById(id);
   if (r) r.checked = true;
-  
-  // Trigger the change event manually to update InstaPay badge
   r.dispatchEvent(new Event('change'));
-  
   document.getElementById('register').scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -1109,3 +1150,45 @@ renderJobs(JOBS);
 renderCompanies();
 renderHowSteps('seeker');
 }
+
+ const swiper = new Swiper('.partnerSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    centeredSlides: false, 
+                },
+                1200: {
+                    slidesPerView: 7,
+                    spaceBetween: 40,
+                    centeredSlides: false,
+                }
+            },
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    var dropdownToggle = document.querySelector('.dropdown-mega .dropdown-toggle');
+    var megaMenu = document.querySelector('.mega-menu-wrapper');
+
+    if (window.innerWidth < 992) {
+        dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // تبديل ظهور القائمة
+            var isShown = megaMenu.style.display === 'block';
+            megaMenu.style.display = isShown ? 'none' : 'block';
+            
+            // إضافة كلاس show للعنصر الأب للتوافق مع التنسيقات
+            this.parentElement.classList.toggle('show');
+        });
+    }
+});

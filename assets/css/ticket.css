@@ -216,8 +216,8 @@
       color: var(--white);
     }
 
-    .nav-title small {
-      font-size: 10px;
+    .nav-title strong {
+      font-size: 17px !important;
       color: var(--muted);
       letter-spacing: 2.5px;
       text-transform: uppercase;

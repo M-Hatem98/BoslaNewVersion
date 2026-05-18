@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/vetegypt.css">
+</head>
+
+<body>
+<!-- TICKER -->
+<div class="ticker-bar"><div class="ticker-inner" id="ticker"></div></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">
+    <div class="logo-icon">ب</div>
+    <div><div class="logo-name">VetEgypt Pro</div><div class="logo-sub">منصة الثروة الحيوانية والسوق البيطري · بورصة القاهرة</div></div>
+  </div>
+  <div class="nav-pills">
+    <button class="np active">الرئيسية</button>
+    <button class="np">الأسعار</button>
+    <button class="np">التحليل</button>
+    <button class="np">البورصة</button>
+    <button class="np">تقارير</button>
+  </div>
+  <div class="live-badge"><div class="dot-live"></div>EGX · مباشر · الإثنين ١٣ أبريل ٢٠٢٦</div>
+</nav>
+
+<!-- HERO with SVG stock exchange background -->
+ 
+<div class="hero">
+  <div class="main">
+  <!-- SVG Stock Exchange Background -->
+  <svg class="hero-canvas-bg" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Grid lines -->
+    <defs>
+      <pattern id="g" width="60" height="40" patternUnits="userSpaceOnUse">
+        <path d="M60 0H0M0 40V0" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" fill="none"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#g)"/>
+    <!-- Candlestick chart decorative -->
+    <g opacity="0.22">
+      <!-- Candles right side - green -->
+      <line x1="820" y1="80" x2="820" y2="200" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="812" y="110" width="16" height="60" fill="#4dffb4" rx="2"/>
+      <line x1="860" y1="60" x2="860" y2="180" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="852" y="90" width="16" height="55" fill="#4dffb4" rx="2"/>
+      <line x1="900" y1="70" x2="900" y2="190" stroke="#ff8095" stroke-width="1"/>
+      <rect x="892" y="120" width="16" height="45" fill="#ff8095" rx="2"/>
+      <line x1="940" y1="50" x2="940" y2="170" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="932" y="80" width="16" height="60" fill="#4dffb4" rx="2"/>
+      <line x1="980" y1="40" x2="980" y2="160" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="972" y="65" width="16" height="55" fill="#4dffb4" rx="2"/>
+      <line x1="1020" y1="55" x2="1020" y2="175" stroke="#ff8095" stroke-width="1"/>
+      <rect x="1012" y="100" width="16" height="50" fill="#ff8095" rx="2"/>
+      <line x1="1060" y1="35" x2="1060" y2="155" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="1052" y="60" width="16" height="65" fill="#4dffb4" rx="2"/>
+      <line x1="1100" y1="25" x2="1100" y2="145" stroke="#4dffb4" stroke-width="1"/>
+      <rect x="1092" y="50" width="16" height="60" fill="#4dffb4" rx="2"/>
+      <line x1="1140" y1="40" x2="1140" y2="160" stroke="#ff8095" stroke-width="1"/>
+      <rect x="1132" y="80" width="16" height="55" fill="#ff8095" rx="2"/>
+      <!-- Trend line -->
+      <polyline points="820,150 860,130 900,160 940,110 980,85 1020,125 1060,75 1100,55 1140,90 1200,45" fill="none" stroke="rgba(201,161,64,0.6)" stroke-width="2" stroke-dasharray="6 3"/>
+      <!-- Volume bars at bottom -->
+      <rect x="812" y="240" width="16" height="30" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="852" y="235" width="16" height="35" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="892" y="245" width="16" height="25" fill="rgba(255,128,149,0.3)" rx="1"/>
+      <rect x="932" y="230" width="16" height="40" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="972" y="225" width="16" height="45" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="1012" y="240" width="16" height="30" fill="rgba(255,128,149,0.3)" rx="1"/>
+      <rect x="1052" y="220" width="16" height="50" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="1092" y="215" width="16" height="55" fill="rgba(77,255,180,0.3)" rx="1"/>
+      <rect x="1132" y="235" width="16" height="35" fill="rgba(255,128,149,0.3)" rx="1"/>
+      <!-- Horizontal grid lines -->
+      <line x1="800" y1="60" x2="1200" y2="60" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      <line x1="800" y1="120" x2="1200" y2="120" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      <line x1="800" y1="180" x2="1200" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      <line x1="800" y1="240" x2="1200" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+      <!-- Y-axis labels -->
+      <text x="806" y="64" font-size="9" fill="rgba(255,255,255,0.2)" font-family="IBM Plex Mono">32,100</text>
+      <text x="806" y="124" font-size="9" fill="rgba(255,255,255,0.2)" font-family="IBM Plex Mono">31,800</text>
+      <text x="806" y="184" font-size="9" fill="rgba(255,255,255,0.2)" font-family="IBM Plex Mono">31,400</text>
+    </g>
+    <!-- EGX label -->
+    <text x="870" y="290" font-size="11" fill="rgba(201,161,64,0.3)" font-family="Cairo" font-weight="700">بورصة القاهرة للأوراق المالية · EGX</text>
+    <!-- Glow circle -->
+    <circle cx="1000" cy="150" r="180" fill="radial-gradient" opacity="0"/>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2362c8" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <circle cx="1000" cy="150" r="200" fill="url(#glow)"/>
+  </svg>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🤖 ذكاء اصطناعي متخصص &nbsp;|&nbsp; 📊 بيانات يومية محدّثة</div>
+    <h1>منصة الثروة الحيوانية<br>والسوق البيطري <span>المصري والعربي</span></h1>
+    <p class="hero-desc">أسعار الكتاكيت اليومية من شركات موثقة · بورصة EGX · صادرات وواردات · أدوية وأعلاف · توصيات للمحترفين</p>
+    <div class="sources-bar">
+      <span class="src-pill">✓ وزارة الزراعة المصرية</span>
+      <span class="src-pill">✓ اتحاد منتجي الدواجن</span>
+      <span class="src-pill">✓ FAOSTAT</span>
+      <span class="src-pill">✓ هيئة الرقابة المالية EGX</span>
+      <span class="src-pill">✓ البنك المركزي المصري</span>
+      <span class="src-pill">✓ نقابة مربي الدواجن</span>
+    </div>
+    <div class="hero-kpis">
+      <div class="hkpi"><div class="hkpi-v" style="color:var(--gold)">53.14</div><div class="hkpi-l">USD/EGP</div></div>
+      <div class="hkpi"><div class="hkpi-v" style="color:#4dffb4">31,842</div><div class="hkpi-l">EGX30</div></div>
+      <div class="hkpi"><div class="hkpi-v" style="color:#fff">13.80</div><div class="hkpi-l">دواجن ج/كجم</div></div>
+      <div class="hkpi"><div class="hkpi-v" style="color:var(--gold)">5.00–5.50</div><div class="hkpi-l">كتكوت روس ج</div></div>
+      <div class="hkpi"><div class="hkpi-v" style="color:#4dffb4">7,200</div><div class="hkpi-l">ذرة ج/طن</div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="main">
+
+<!-- STAT CARDS -->
+<div class="g4" style="margin-top:20px">
+  <div class="card">
+    <div class="card-hd">سوق الدواء البيطري — مصر 2025</div>
+    <div class="card-val" style="color:var(--navy)">8.4B</div>
+    <div class="card-sub"><span>جنيه</span><span class="up">▲ +13%</span></div>
+    <div class="card-src">المصدر: اتحاد منتجي الدواجن المصري 2025</div>
+  </div>
+  <div class="card">
+    <div class="card-hd">سوق الأعلاف — مصر 2025</div>
+    <div class="card-val" style="color:var(--blue)">62B</div>
+    <div class="card-sub"><span>جنيه</span><span class="up">▲ +18%</span></div>
+    <div class="card-src">المصدر: وزارة الزراعة المصرية 2025</div>
+  </div>
+  <div class="card">
+    <div class="card-hd">إنتاج الدواجن — مصر 2025</div>
+    <div class="card-val" style="color:var(--green)">1.85M</div>
+    <div class="card-sub"><span>طن / سنة</span><span class="up">▲ +9%</span></div>
+    <div class="card-src">المصدر: FAOSTAT Egypt 2025</div>
+  </div>
+  <div class="card">
+    <div class="card-hd">رؤوس الماشية — مصر 2025</div>
+    <div class="card-val" style="color:var(--navy)">19.5M</div>
+    <div class="card-sub"><span>رأس</span><span class="up">▲ +3.5%</span></div>
+    <div class="card-src">المصدر: الجهاز المركزي للإحصاء</div>
+  </div>
+</div>
+
+<!-- CHICK PRICES - VERIFIED COMPANIES -->
+<div class="card" style="margin-bottom:14px">
+  <div class="sec-title">
+    <div class="sec-title-l">🐣 أسعار الكتاكيت اليومية — شركات موثقة
+      <span class="src-tag">المصدر: نقابة مربي الدواجن المصريين · بورصة الدواجن · إثنين ١٣ أبريل ٢٠٢٦</span>
+    </div>
+    <span class="badge b-navy">محدّث اليوم</span>
+  </div>
+  <div class="chick-grid" id="chickPrices"></div>
+  <div style="background:var(--off2);border-radius:8px;padding:10px 14px;font-size:10px;color:var(--text3);margin-top:4px;line-height:1.8">
+    ⚠️ <strong>ملاحظة مصدر الأسعار:</strong> تُجمع أسعار الكتاكيت يومياً من: نقابة مربي الدواجن المصريين (القاهرة الكبرى) · غرفة صناعة الدواجن بالاتحاد العام للغرف التجارية · الرابطة المصرية لمنتجي الدواجن (EPPA). 
+    الأسعار مرجعية وتتفاوت حسب الكميات والمنطقة الجغرافية. للتحقق الرسمي: اتصل بالشركة مباشرة.
+  </div>
+</div>
+
+<!-- FEED + RAW MATERIALS -->
+<div class="g2">
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">🌾 أسعار أطنان الأعلاف الجاهزة <span class="src-tag">· البورصة السلعية المصرية</span></div></div>
+    <div class="feed-grid" id="feedPrices"></div>
+  </div>
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">⚗️ المواد الخام والمكونات <span class="src-tag">· CBOT · البورصة السلعية · USD/EGP 53.14</span></div></div>
+    <table>
+      <thead><tr><th>المادة</th><th>ج/طن</th><th>USD/طن</th><th>التغيير</th></tr></thead>
+      <tbody id="rawMats"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- DAILY POULTRY PRICES -->
+<div class="g2">
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">🐔 أسعار الدواجن اليومية بالأسواق <span class="src-tag">· بورصة الدواجن المصرية · شعبة الدواجن بالغرفة التجارية</span></div></div>
+    <table>
+      <thead><tr><th>النوع</th><th>جملة (ج/كجم)</th><th>تجزئة</th><th>التغيير</th></tr></thead>
+      <tbody id="poultryPrices"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">📈 توقعات EGX — أسهم الدواجن والغذاء <span class="src-tag">· هيئة الرقابة المالية</span></div></div>
+    <div class="legend">
+      <span class="leg"><span class="leg-sq" style="background:var(--navy)"></span>القاهرة دواجن</span>
+      <span class="leg"><span class="leg-sq" style="background:var(--blue)"></span>مصر ألبان</span>
+      <span class="leg"><span class="leg-sq" style="background:var(--green)"></span>بيكو أغذية</span>
+    </div>
+    <div class="chart-wrap" style="height:180px"><canvas id="egxChart" role="img" aria-label="أداء أسهم الدواجن في بورصة EGX">أداء الأسهم الزراعية الرئيسية في بورصة القاهرة.</canvas></div>
+  </div>
+</div>
+
+<!-- AI SEARCH -->
+<div class="ai-card">
+  <div class="ai-hd">🔍 البحث عن الفرص — مصر · الوطن العربي · شمال أفريقيا</div>
+  <div class="ai-row">
+    <input class="ai-input" id="aiQ" placeholder="ابحث: فرصة استثمار، تحليل سوق، توقع سعر، مقارنة منافسين في القطاع البيطري..."/>
+    <button class="ai-btn" id="aiBtn" onclick="askAI()">بحث بالذكاء الاصطناعي ↗</button>
+  </div>
+  <div class="pills">
+    <span class="pill" onclick="sq('فرص الاستثمار في مصانع الأعلاف بمصر 2026 مع حساب العائد على الاستثمار')">🏭 مصانع الأعلاف</span>
+    <span class="pill" onclick="sq('سوق الأدوية البيطرية في شمال أفريقيا المغرب الجزائر تونس ليبيا')">🌍 شمال أفريقيا</span>
+    <span class="pill" onclick="sq('توقعات أسعار الكتاكيت والدواجن خلال موسم الصيف 2026 في مصر')">📊 توقعات الصيف</span>
+    <span class="pill" onclick="sq('أفضل الإضافات العلفية لتحسين معدل التحويل الغذائي FCR في مصر')">💊 إضافات علفية FCR</span>
+    <span class="pill" onclick="sq('فرص تصدير الدواجن المصرية إلى دول أفريقيا جنوب الصحراء والخليج')">✈️ تصدير الدواجن</span>
+    <span class="pill" onclick="sq('مقارنة تكاليف إنشاء مزرعة دواجن بمصر مقابل المغرب والسعودية')">⚖️ مقارنة تكاليف المزارع</span>
+  </div>
+  <div class="ai-ans" id="aiAns"><div class="ai-ans-hd">🤖 تحليل الذكاء الاصطناعي</div><div id="aiTxt"></div></div>
+</div>
+
+<!-- DAILY RECOMMENDATIONS -->
+<div class="rec-wrap">
+  <button class="rec-btn rb1" id="rb1" onclick="getRec('poultry')">🐓 التوصيات اليومية — مربو الدواجن والكتاكيت</button>
+  <button class="rec-btn rb2" id="rb2" onclick="getRec('feed')">🌾 توصيات شركات الأعلاف والإضافات العلفية</button>
+  <button class="rec-btn rb3" id="rb3" onclick="getRec('pharma')">💊 توصيات شركات الأدوية البيطرية</button>
+</div>
+<div class="rec-ans" id="recAns"><div class="rec-ans-hd">📋 التوصيات اليومية للمحترفين — الإثنين ١٣ أبريل ٢٠٢٦</div><div id="recTxt"></div></div>
+
+<div class="section-divider"></div>
+
+<!-- TRADE + MARKETS -->
+<div class="g2">
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">📦 صادرات وواردات مصر — دواجن وماشية <span class="src-tag">· وزارة الزراعة · ITC Trade Map 2025</span></div></div>
+    <table>
+      <thead><tr><th>البند</th><th>الكمية</th><th>القيمة</th><th>الاتجاه</th></tr></thead>
+      <tbody id="egyptTrade"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">🌍 واردات الدواجن والماشية — الوطن العربي <span class="src-tag">· FAOSTAT · Arab Trade Statistics 2024</span></div></div>
+    <table>
+      <thead><tr><th>الدولة</th><th>واردات (م.$)</th><th>صادرات</th><th>الاتجاه</th></tr></thead>
+      <tbody id="arabTrade"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="g2">
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">💊 سوق الدواء البيطري — مصر والعالم العربي <span class="src-tag">· Mordor Intelligence · IQVIA 2025</span></div></div>
+    <div id="vetBars"></div>
+    <div class="chart-wrap" style="height:170px;margin-top:10px"><canvas id="vetChart" role="img" aria-label="حجم سوق الدواء البيطري عربياً">مقارنة أحجام الأسواق البيطرية العربية.</canvas></div>
+  </div>
+  <div class="card">
+    <div class="sec-title"><div class="sec-title-l">🤖 تحليلات الذكاء الاصطناعي اليومية</div></div>
+    <div id="insights"></div>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div class="card">
+  <div class="sec-title"><div class="sec-title-l">📰 أخبار القطاع البيطري <span class="src-tag">· الأهرام · MENA · رويترز عربي · إيكونوميست عربي</span></div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px" id="news"></div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="assets/js/vetegypt.js"></script>
+</body>
+</html?

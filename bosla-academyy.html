@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أكاديمية بوصلة — Bosla AgriBusiness Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/newacademy.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">ب</div>
+    <div>
+      <div class="logo-text">أكاديمية بوصلة</div>
+      <span class="logo-sub">Bosla AgriBusiness Academy</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">الرئيسية</a></li>
+    <li><a href="#tracks">التخصصات</a></li>
+    <li><a href="#courses">الدورات</a></li>
+    <li><a href="#why">لماذا بوصلة؟</a></li>
+    <li><a href="#">عن بوصلة</a></li>
+  </ul>
+  <a href="#" class="nav-cta">سجّل الآن</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1;max-width:800px">
+    <div class="hero-badge">🎓 المنصة التعليمية الأولى في الأجرو-بيزنس</div>
+    <h1>طوّر مسيرتك المهنية في<br><span>الطب البيطري والزراعة</span></h1>
+    <p>أكاديمية بوصلة — منصة متخصصة لتأهيل الخريجين والمحترفين في مجالات الطب البيطري والزراعة والمبيعات الزراعية على أحدث المعايير العلمية والمهنية.</p>
+    <div class="hero-btns">
+      <a href="#courses" class="btn-primary">🚀 ابدأ رحلتك التعليمية</a>
+      <a href="#tracks" class="btn-outline">استعرض التخصصات</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">+2000</span><span class="stat-label">خريج مُؤهَّل</span></div>
+      <div class="stat"><span class="stat-num">+150</span><span class="stat-label">دورة متخصصة</span></div>
+      <div class="stat"><span class="stat-num">+80</span><span class="stat-label">خبير ومدرب</span></div>
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">مؤتمرات ناجحة</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="section tracks-section" id="tracks">
+  <div class="section-header">
+    <div class="section-tag">المسارات التخصصية</div>
+    <h2>اختر تخصصك واحترف مجالك</h2>
+    <p>ثلاثة مسارات متكاملة صُممت خصيصًا لسوق العمل المصري والعربي في قطاع الأجرو-بيزنس</p>
+  </div>
+  <div class="tracks-grid">
+    <div class="track-card vet" onclick="showPanel('vet');document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+      <div class="track-icon vet">🩺</div>
+      <h3>الطب البيطري والصناعي</h3>
+      <p>تأهيل متخصص لأطباء وخريجي الطب البيطري للعمل في الشركات الدوائية والمزارع الصناعية الكبرى.</p>
+      <span class="track-count">+60 دورة متخصصة</span>
+      <div class="track-topics">
+        <span class="topic-pill tp-vet">أمراض الدواجن</span>
+        <span class="topic-pill tp-vet">الثروة الحيوانية</span>
+        <span class="topic-pill tp-vet">الأدوية البيطرية</span>
+        <span class="topic-pill tp-vet">تشخيص الأمراض</span>
+        <span class="topic-pill tp-vet">التغذية الحيوانية</span>
+      </div>
+    </div>
+    <div class="track-card agri" onclick="showPanel('agri');document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+      <div class="track-icon agri">🌾</div>
+      <h3>الزراعة والإنتاج النباتي</h3>
+      <p>برامج مكثفة في زراعة الحاصلات وتقنيات الري والتكنولوجيا الزراعية وسلاسل الإمداد الغذائي.</p>
+      <span class="track-count">+45 دورة متخصصة</span>
+      <div class="track-topics">
+        <span class="topic-pill tp-agri">أقلمة المحاصيل</span>
+        <span class="topic-pill tp-agri">المبيدات والأسمدة</span>
+        <span class="topic-pill tp-agri">الزراعة المائية</span>
+        <span class="topic-pill tp-agri">الاستدامة الزراعية</span>
+      </div>
+    </div>
+    <div class="track-card sales" onclick="showPanel('sales');document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+      <div class="track-icon sales">📊</div>
+      <h3>المبيعات والتسويق الزراعي</h3>
+      <p>تأهيل مندوبي المبيعات والمسوقين في شركات الأدوية البيطرية ومستلزمات الإنتاج الزراعي.</p>
+      <span class="track-count">+40 دورة متخصصة</span>
+      <div class="track-topics">
+        <span class="topic-pill tp-sales">مهارات البيع</span>
+        <span class="topic-pill tp-sales">إدارة العملاء</span>
+        <span class="topic-pill tp-sales">التسويق الرقمي</span>
+        <span class="topic-pill tp-sales">استراتيجيات المبيعات</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section" id="courses">
+  <div class="section-header">
+    <div class="section-tag">الدورات التدريبية</div>
+    <h2>أحدث الدورات المتاحة</h2>
+    <p>دورات عملية وتطبيقية تُعدّك مباشرةً لسوق العمل</p>
+  </div>
+
+  <div class="spec-tabs">
+    <button class="spec-tab vet active" id="btn-vet" onclick="showPanel('vet')">🩺 الطب البيطري</button>
+    <button class="spec-tab agri" id="btn-agri" onclick="showPanel('agri')">🌾 الزراعة</button>
+    <button class="spec-tab sales" id="btn-sales" onclick="showPanel('sales')">📊 المبيعات والتسويق</button>
+  </div>
+
+  <!-- VET PANEL -->
+  <div class="panel active" id="panel-vet">
+    <div class="courses-grid">
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">🐔</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">دواجن</span><span class="card-duration">⏱ 8 أسابيع</span></div>
+          <div class="card-title">إدارة صحة قطعان الدواجن في المزارع الصناعية</div>
+          <div class="card-desc">برنامج شامل في تشخيص ومكافحة أمراض الدواجن الشائعة وبروتوكولات التطعيم وإدارة الأوبئة.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍⚕️ د. أحمد مصطفى</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">💊</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">صيدلة بيطرية</span><span class="card-duration">⏱ 6 أسابيع</span></div>
+          <div class="card-title">الأدوية البيطرية ودورها في الإنتاج الحيواني</div>
+          <div class="card-desc">دراسة تفصيلية للمنتجات الدوائية البيطرية والمستحضرات الحيوية واستخداماتها في الشركات.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👩‍⚕️ د. سارة خالد</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">🐄</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">ثروة حيوانية</span><span class="card-duration">⏱ 10 أسابيع</span></div>
+          <div class="card-title">إنتاج الألبان وصحة قطعان الأبقار الحلوب</div>
+          <div class="card-desc">برنامج متكامل في إدارة مزارع الألبان والتغذية وصحة الضرع وتحسين الكفاءة الإنتاجية.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍⚕️ د. محمد علي</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">🐟</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">أحياء مائية</span><span class="card-duration">⏱ 7 أسابيع</span></div>
+          <div class="card-title">صحة الأسماك وإدارة مزارع الاستزراع السمكي</div>
+          <div class="card-desc">أمراض الأسماك والقشريات وبروتوكولات الوقاية وإدارة جودة المياه في مزارع الأسماك.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍⚕️ د. عمر فاروق</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">🔬</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">تشخيص مختبري</span><span class="card-duration">⏱ 5 أسابيع</span></div>
+          <div class="card-title">التشخيص المختبري للأمراض الحيوانية المشتركة</div>
+          <div class="card-desc">تقنيات التشخيص الحديثة وقراءة نتائج التحاليل واتخاذ القرار العلاجي المبني على الدليل.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👩‍🔬 د. منى حسن</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card vet">
+        <div class="card-thumb vet-bg">🛡️</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-vet">أمن حيوي</span><span class="card-duration">⏱ 4 أسابيع</span></div>
+          <div class="card-title">الأمن الحيوي وبروتوكولات الوقاية في المزارع الكبرى</div>
+          <div class="card-desc">تصميم وتطبيق أنظمة الأمن الحيوي في مزارع الدواجن والماشية والحد من انتشار الأمراض.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍⚕️ د. ياسر صلاح</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGRI PANEL -->
+  <div class="panel" id="panel-agri">
+    <div class="courses-grid">
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">🌽</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">محاصيل حقلية</span><span class="card-duration">⏱ 8 أسابيع</span></div>
+          <div class="card-title">تقنيات إنتاج الحبوب وإدارة التغذية النباتية</div>
+          <div class="card-desc">دورة شاملة في زراعة القمح والذرة وبقية الحبوب مع أحدث تقنيات التسميد والري.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍🌾 م. طارق إبراهيم</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">🧪</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">مبيدات وأسمدة</span><span class="card-duration">⏱ 6 أسابيع</span></div>
+          <div class="card-title">إدارة المبيدات الحشرية والأسمدة الكيميائية والعضوية</div>
+          <div class="card-desc">برنامج متخصص في التعامل الآمن مع مستلزمات الحماية والتغذية الزراعية.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👩‍🔬 د. نهى عبدالله</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">💧</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">تكنولوجيا زراعية</span><span class="card-duration">⏱ 5 أسابيع</span></div>
+          <div class="card-title">الزراعة المائية وأنظمة الري الحديثة</div>
+          <div class="card-desc">تقنيات الزراعة بدون تربة وأنظمة الري بالتنقيط والرش وربطها بالأجهزة الذكية.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍💻 م. كريم سامي</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">🌿</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">حماية نباتات</span><span class="card-duration">⏱ 7 أسابيع</span></div>
+          <div class="card-title">الأمراض الفطرية والحشرية وبرامج المكافحة المتكاملة</div>
+          <div class="card-desc">تشخيص آفات المحاصيل الرئيسية وبرامج المكافحة الحيوية والكيميائية المتكاملة.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👩‍🌾 د. ليلى عمران</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">🏭</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">سلاسل إمداد</span><span class="card-duration">⏱ 6 أسابيع</span></div>
+          <div class="card-title">إدارة سلاسل الإمداد الغذائي من المزرعة للمستهلك</div>
+          <div class="card-desc">منظومة متكاملة في لوجستيات الأغذية والجودة وسلاسل التبريد وإدارة المستودعات الزراعية.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👨‍💼 أ. سامح فوزي</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card agri">
+        <div class="card-thumb agri-bg">☀️</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-agri">استدامة</span><span class="card-duration">⏱ 4 أسابيع</span></div>
+          <div class="card-title">الزراعة المستدامة وتقليل البصمة الكربونية</div>
+          <div class="card-desc">ممارسات الزراعة الصديقة للبيئة والطاقة المتجددة في المزارع واقتصاديات الاستدامة.</div>
+          <div class="card-footer">
+            <span class="card-instructor">👩‍🔬 د. إيمان رشيد</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SALES PANEL -->
+  <div class="panel" id="panel-sales">
+    <div class="courses-grid">
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">🤝</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">مبيعات</span><span class="card-duration">⏱ 6 أسابيع</span></div>
+          <div class="card-title">مهارات البيع الاحترافي للمندوبين في الشركات البيطرية</div>
+          <div class="card-desc">برنامج يُدرّب مندوبي المبيعات على فن البيع الاستشاري وإدارة علاقات العملاء في قطاع الأجرو.</div>
+          <div class="card-footer">
+            <span class="card-instructor">🎯 أ. هشام النجار</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">📱</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">تسويق رقمي</span><span class="card-duration">⏱ 8 أسابيع</span></div>
+          <div class="card-title">التسويق الرقمي لشركات الأدوية والمستلزمات الزراعية</div>
+          <div class="card-desc">استراتيجيات التسويق عبر السوشيال ميديا وبناء الحضور الرقمي لشركات الأجرو-بيزنس.</div>
+          <div class="card-footer">
+            <span class="card-instructor">📲 أ. ريم عادل</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">📈</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">إدارة مبيعات</span><span class="card-duration">⏱ 10 أسابيع</span></div>
+          <div class="card-title">إدارة فرق المبيعات وبناء الاستراتيجية التجارية</div>
+          <div class="card-desc">برنامج القيادة للمديرين التجاريين: بناء الفرق وقياس الأداء وتطوير الاستراتيجيات البيعية.</div>
+          <div class="card-footer">
+            <span class="card-instructor">📊 أ. مصطفى رجب</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">🧠</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">تسويق محتوى</span><span class="card-duration">⏱ 5 أسابيع</span></div>
+          <div class="card-title">بناء المحتوى التسويقي المتخصص لقطاع الأجرو</div>
+          <div class="card-desc">كتابة المحتوى التسويقي الزراعي والبيطري وبناء استراتيجية المحتوى على منصات التواصل.</div>
+          <div class="card-footer">
+            <span class="card-instructor">✍️ أ. دينا وليد</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">💼</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">مهارات ناعمة</span><span class="card-duration">⏱ 4 أسابيع</span></div>
+          <div class="card-title">مهارات التفاوض وإتمام الصفقات في السوق الزراعي</div>
+          <div class="card-desc">فنون التفاوض مع كبار العملاء وإدارة الاعتراضات وأساليب إغلاق الصفقات بنجاح.</div>
+          <div class="card-footer">
+            <span class="card-instructor">🎯 أ. وليد منصور</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+      <div class="course-card sales">
+        <div class="card-thumb sales-bg">🗺️</div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-badge badge-sales">تخطيط مناطق</span><span class="card-duration">⏱ 4 أسابيع</span></div>
+          <div class="card-title">إدارة المناطق البيعية وتحليل بيانات السوق الزراعي</div>
+          <div class="card-desc">تقسيم المناطق وتحليل فرص السوق وبناء خطط البيع الجغرافية باستخدام أدوات التحليل الحديثة.</div>
+          <div class="card-footer">
+            <span class="card-instructor">📊 أ. سمر النمر</span>
+            <button class="card-enroll">تسجيل</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="why" style="background:var(--navy2);border-top:1px solid rgba(255,255,255,0.05)">
+  <div class="section-header">
+    <div class="section-tag">لماذا بوصلة؟</div>
+    <h2>المنهجية التي تصنع الفارق</h2>
+    <p>بوصلة ليست مجرد منصة تعليم — بل جسر حقيقي بين الخريج وسوق العمل</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">🏭</span>
+      <h4>خبراء من الصناعة</h4>
+      <p>مدربون بخبرة عملية حقيقية في الشركات الكبرى والمزارع الصناعية</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🎯</span>
+      <h4>منهج موجّه لسوق العمل</h4>
+      <p>محتوى مُصمَّم بناءً على احتياجات أصحاب العمل في السوق المصري والعربي</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📜</span>
+      <h4>شهادات معتمدة</h4>
+      <p>شهادات إتمام معترف بها من شركات الأجرو-بيزنس الرائدة في مصر</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h4>شبكة توظيف قوية</h4>
+      <p>ربطك مباشرةً بفرص العمل عبر شبكة شركاء بوصلة الموسعة</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🎙️</span>
+      <h4>بودكاست ومحتوى مستمر</h4>
+      <p>حلقات تعليمية أسبوعية ومحتوى متجدد من خبراء القطاع</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🏆</span>
+      <h4>مؤتمر بوصلة كارير</h4>
+      <p>الحدث السنوي الأكبر لربط طلاب الطب البيطري والزراعة بأصحاب العمل</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">📱</span>
+      <h4>تعلّم أينما كنت</h4>
+      <p>محتوى مرئي وتفاعلي يمكن متابعته من أي جهاز في أي وقت</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💬</span>
+      <h4>مجتمع ودعم مستمر</h4>
+      <p>مجموعات دعم ومتابعة مستمرة من المدربين بعد إتمام الدورات</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:transparent;padding-bottom:2rem">
+  <div class="cta-section">
+    <div class="section-tag">ابدأ اليوم</div>
+    <h2>جاهز لتطوير مسيرتك المهنية؟</h2>
+    <p>انضم لأكثر من 2000 خريج استثمروا في أنفسهم عبر أكاديمية بوصلة وحققوا نقلة نوعية في مسيرتهم المهنية في قطاع الأجرو-بيزنس</p>
+    <div class="hero-btns" style="justify-content:center">
+      <a href="#" class="btn-primary">📚 اشترك الآن مجانًا</a>
+      <a href="#" class="btn-outline">تحدث مع مستشار تعليمي</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo">
+      <div class="logo-icon">ب</div>
+      <div>
+        <div class="logo-text">أكاديمية بوصلة</div>
+        <span class="logo-sub">Bosla AgriBusiness Academy</span>
+      </div>
+    </div>
+    <p>المنصة التعليمية الأولى المتخصصة في تأهيل كوادر قطاع الأجرو-بيزنس في مصر والعالم العربي.</p>
+    <div class="footer-social">
+      <a class="social-btn" href="#">f</a>
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">yt</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>التخصصات</h4>
+    <ul>
+      <li><a href="#">الطب البيطري</a></li>
+      <li><a href="#">صحة الدواجن</a></li>
+      <li><a href="#">الثروة الحيوانية</a></li>
+      <li><a href="#">الإنتاج الزراعي</a></li>
+      <li><a href="#">المبيعات الزراعية</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>منظومة بوصلة</h4>
+    <ul>
+      <li><a href="#">عن الأكاديمية</a></li>
+      <li><a href="#">مؤتمر بوصلة كارير</a></li>
+      <li><a href="#">بوصلة بودكاست</a></li>
+      <li><a href="#">مجلة بوصلة</a></li>
+      <li><a href="#">استشارات بوصلة</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>تواصل معنا</h4>
+    <ul>
+      <li><a href="#">📧 info@boslaagri.com</a></li>
+      <li><a href="#">📞 الدعم الفني</a></li>
+      <li><a href="#">💬 واتساب</a></li>
+      <li><a href="#">📍 مصر — دلتا النيل</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2025 أكاديمية بوصلة للأجرو-بيزنس — جميع الحقوق محفوظة | BoslaAgri.com</div>
+
+<script>
+function showPanel(type){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.spec-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById('panel-'+type).classList.add('active');
+  document.getElementById('btn-'+type).classList.add('active');
+}
+document.querySelectorAll('.card-enroll').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    this.textContent='✓ تم التسجيل';
+    this.style.background='rgba(201,162,39,0.3)';
+    this.style.color='#f5d97a';
+    this.disabled=true;
+  });
+});
+</script>
+</body>
+</html>

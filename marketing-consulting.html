@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bosla Business Diagnostic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Cairo:wght@600;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/marketing-consulting.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <div class="logo-text">
+        <div class="brand">BOSLA</div>
+        <div class="sub">BUSINESS DIAGNOSTIC</div>
+      </div>
+    </div>
+    <div id="progress-wrap">
+      <div id="progress-bar-track"><div id="progress-bar-fill"></div></div>
+      <div id="progress-label">1/10</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ INTRO ══ -->
+    <section id="screen-intro" class="screen active anim-up">
+      <div class="badge"><span class="badge-dot"></span><span class="badge-text">تشخيص مجاني · 2 دقيقة</span></div>
+      <h1 class="hero">اكتشف فين مؤسستك<br/>فعلاً — قبل المنافس</h1>
+      <p class="hero-sub">تشخيص تجاري مخصص لأصحاب الشركات والمديرين في القطاع البيطري والزراعي المصري.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">◉</div>
+          <div class="feature-label">Business Health Score</div>
+          <div class="feature-sub">على 4 محاور رئيسية</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚠</div>
+          <div class="feature-label">نقاط الألم الحقيقية</div>
+          <div class="feature-sub">5 تشخيصات مخصصة</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◈</div>
+          <div class="feature-label">تشخيص تسويقي</div>
+          <div class="feature-sub">فجوات وفرص غير مستغلة</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">→</div>
+          <div class="feature-label">خطوة عملية فورية</div>
+          <div class="feature-sub">تبدأ بيها النهارده</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <button class="btn-gold btn" onclick="startQuiz()">ابدأ التشخيص المجاني ←</button>
+      <p style="text-align:center;color:var(--dim);font-size:11px;margin-top:14px;letter-spacing:.3px">لا يتطلب تسجيل · نتيجتك سرية تماماً</p>
+    </section>
+
+    <!-- ══ QUESTIONS ══ -->
+    <section id="screen-questions" class="screen">
+      <div class="q-counter">
+        <span class="q-num" id="q-num">01 / 10</span>
+        <div class="q-line"></div>
+      </div>
+      <h2 class="question" id="q-text"></h2>
+      <p class="q-hint" id="q-hint"></p>
+      <div class="options" id="options-list"></div>
+      <button class="btn-back btn" id="btn-back" onclick="prevQ()" style="display:none">← السؤال السابق</button>
+    </section>
+
+    <!-- ══ LOADING ══ -->
+    <section id="screen-loading" class="screen">
+      <div class="loading-wrap">
+        <div class="spinner-wrap">
+          <div class="spinner-bg"></div>
+          <div class="spinner-ring"></div>
+          <div class="spinner-inner">🔬</div>
+        </div>
+        <h2 style="font-size:20px;font-weight:800;margin-bottom:10px;font-family:'Cairo',sans-serif">جاري تحليل بيانات مؤسستك</h2>
+        <p style="color:var(--muted);font-size:14px;line-height:1.8">بنشوف الوضع الحقيقي<br/>ونجهزلك التقرير المخصص</p>
+        <div class="loading-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      </div>
+    </section>
+
+    <!-- ══ REPORT ══ -->
+    <section id="screen-report" class="screen">
+
+      <!-- Score hero -->
+      <div class="score-hero">
+        <div class="score-glow" id="score-glow"></div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);margin-bottom:14px">◉ BUSINESS HEALTH REPORT</div>
+        <div class="score-inner">
+          <div class="score-circle-wrap">
+            <svg width="110" height="110" viewBox="0 0 110 110">
+              <circle cx="55" cy="55" r="42" fill="none" stroke="var(--border)" stroke-width="7"/>
+              <circle id="score-arc" cx="55" cy="55" r="42" fill="none" stroke-width="7" stroke-linecap="round" stroke-dasharray="0 999"/>
+            </svg>
+            <div class="score-text">
+              <span class="score-num" id="score-num">0</span>
+              <span class="score-denom">/100</span>
+            </div>
+          </div>
+          <div class="score-right">
+            <div class="score-label" id="profile-label"></div>
+            <div class="urgency-badge" id="urgency-badge"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Score bars -->
+      <div class="card">
+        <div class="section-label" style="color:var(--muted)">تفصيل المحاور</div>
+        <div class="mini-bar">
+          <div class="mini-bar-head">
+            <span class="mini-bar-label">المبيعات والإيرادات</span>
+            <span class="mini-bar-val" id="bar-sales-val" style="color:var(--gold)">0</span>
+          </div>
+          <div class="mini-bar-track"><div class="mini-bar-fill" id="bar-sales"></div></div>
+        </div>
+        <div class="mini-bar">
+          <div class="mini-bar-head">
+            <span class="mini-bar-label">التسويق والبراند</span>
+            <span class="mini-bar-val" id="bar-marketing-val" style="color:var(--gold)">0</span>
+          </div>
+          <div class="mini-bar-track"><div class="mini-bar-fill" id="bar-marketing"></div></div>
+        </div>
+        <div class="mini-bar">
+          <div class="mini-bar-head">
+            <span class="mini-bar-label">الكوادر والتدريب</span>
+            <span class="mini-bar-val" id="bar-talent-val" style="color:var(--gold)">0</span>
+          </div>
+          <div class="mini-bar-track"><div class="mini-bar-fill" id="bar-talent"></div></div>
+        </div>
+        <div class="mini-bar" style="margin-bottom:0">
+          <div class="mini-bar-head">
+            <span class="mini-bar-label">الاستراتيجية والنمو</span>
+            <span class="mini-bar-val" id="bar-strategy-val" style="color:var(--gold)">0</span>
+          </div>
+          <div class="mini-bar-track"><div class="mini-bar-fill" id="bar-strategy"></div></div>
+        </div>
+      </div>
+
+      <!-- Pain points -->
+      <div style="margin-bottom:18px">
+        <div class="section-label" style="color:var(--muted)">نقاط الضعف الحرجة</div>
+        <div id="pain-points-list"></div>
+      </div>
+
+      <!-- Marketing diagnosis -->
+      <div class="mktg-diag" id="mktg-diag-wrap">
+        <div class="section-label" style="color:var(--orange)">◈ تشخيص تسويقي مخصص</div>
+        <div class="mktg-headline" id="mktg-headline"></div>
+        <div class="mktg-hr"></div>
+        <div class="mktg-grid">
+          <div>
+            <div class="mktg-sub-label" style="color:var(--red)">أكبر فجوة تسويقية</div>
+            <div class="mktg-sub-text" id="mktg-gap"></div>
+          </div>
+          <div>
+            <div class="mktg-sub-label" style="color:var(--green)">أكبر فرصة غير مستغلة</div>
+            <div class="mktg-sub-text" id="mktg-opportunity"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="card">
+        <div class="section-label" style="color:var(--green)">✦ التقييم الإجمالي</div>
+        <p class="summary-text" id="summary-text"></p>
+      </div>
+
+      <!-- Recommended -->
+      <div class="rec-card">
+        <div class="section-label" style="color:var(--gold)">◎ التدخل الأنسب من Bosla</div>
+        <div class="rec-name" id="rec-name"></div>
+        <div class="rec-reason" id="rec-reason"></div>
+      </div>
+
+      <!-- First step -->
+      <div class="first-step-card">
+        <div class="step-icon">⚡</div>
+        <div>
+          <div class="step-label">أول خطوة تعملها النهارده</div>
+          <div class="step-text" id="first-step-text"></div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <button class="btn-gold btn" onclick="openCal()">📅 احجز جلسة تشخيص مجانية مع Bosla ←</button>
+      <p style="text-align:center;color:var(--dim);font-size:11px;margin-top:12px">جلسة 30 دقيقة مع خبير · مجاناً وبدون التزام</p>
+      <button class="btn-ghost btn" onclick="restart()">ابدأ التشخيص من جديد</button>
+
+    </section>
+
+    <div class="error-box" id="error-box"></div>
+  </main>
+
+</div>
+
+<!-- ══ CALENDAR MODAL ══ -->
+<div id="cal-overlay" onclick="calOverlayClick(event)">
+  <div id="cal-sheet">
+    <div class="cal-handle"></div>
+    <div class="cal-header">
+      <div>
+        <div class="cal-title">اختار الموعد المناسب</div>
+        <div class="cal-sub">جلسة 30 دقيقة · مجاناً</div>
+      </div>
+      <button class="cal-close btn" onclick="closeCal()">✕</button>
+    </div>
+    <div class="cal-nav">
+      <button class="cal-nav-btn btn" onclick="prevMonth()">←</button>
+      <span class="cal-month-name" id="cal-month-name">أبريل 2025</span>
+      <button class="cal-nav-btn btn" onclick="nextMonth()">→</button>
+    </div>
+    <div class="cal-days-header" id="cal-days-header"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div id="time-section" class="time-section" style="display:none">
+      <div class="time-label" id="time-label">المواعيد المتاحة</div>
+      <div class="time-grid" id="time-grid"></div>
+    </div>
+    <div id="confirm-wrap" class="confirm-wrap" style="display:none">
+      <div class="confirm-summary">
+        <div class="confirm-icon">📅</div>
+        <div>
+          <div class="confirm-date" id="confirm-date"></div>
+          <div class="confirm-note">جلسة تشخيص 30 دقيقة مع خبير Bosla</div>
+        </div>
+      </div>
+      <a id="wa-link" class="btn-wa" target="_blank" rel="noreferrer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        تأكيد الحجز على واتساب
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/marketing-consulting.js"></script>
+</body>
+</html>

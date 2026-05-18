@@ -1,0 +1,428 @@
+:root {
+    /* تطبيق الألوان الخاصة بك */
+    --bosla-primary: #112A62;
+    --bosla-secondary: #003d80;
+    --bosla-accent: #00d4ff;
+    --bosla-bg-light: #f8fbff;
+    --bosla-text-dark: #1a2b3c;
+    --bosla-gold: #ff8c00;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body.academy-body {
+    background-color: var(--bosla-bg-light);
+    font-family: 'Tajawal', sans-serif;
+    color: var(--bosla-text-dark);
+}
+
+/* Hero Section */
+.academy-hero {
+    background: linear-gradient(135deg, var(--bosla-primary) 0%, var(--bosla-secondary) 100%);
+    padding: 120px 0 80px;
+    position: relative;
+    clip-path: ellipse(150% 100% at 50% 0%); /* تأثير انحناء عصري */
+}
+
+.text-accent { color: var(--bosla-accent); }
+
+.bg-glow-gold {
+    background: rgba(255, 140, 0, 0.15);
+    color: var(--bosla-gold);
+    border: 1px solid var(--bosla-gold);
+}
+
+.blue-line-accent {
+    width: 80px;
+    height: 4px;
+    background: var(--bosla-accent);
+    border-radius: 10px;
+}
+
+/* Course Card Design */
+.course-card {
+    background: white;
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.course-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 30px 60px rgba(17, 42, 98, 0.15) !important;
+}
+
+.course-img-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.course-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.course-card:hover .course-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.course-category {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: var(--bosla-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+}
+
+.bg-success-glow { background: #28a745; }
+.bg-gold-glow { background: var(--bosla-gold); color: white; }
+
+.course-title {
+    color: var(--bosla-primary);
+    font-weight: 800;
+    line-height: 1.4;
+    min-height: 50px;
+}
+
+.course-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.course-meta i { color: var(--bosla-accent); }
+
+.price-tag {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--bosla-secondary);
+}
+
+/* Buttons */
+.btn-enroll {
+    background: var(--bosla-primary);
+    color: white;
+    border-radius: 12px;
+    padding: 12px;
+    font-weight: bold;
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+}
+
+.btn-enroll:hover {
+    background: white;
+    color: var(--bosla-primary);
+    border-color: var(--bosla-primary);
+}
+
+.btn-outline-custom {
+    border: 2px solid var(--bosla-primary);
+    color: var(--bosla-primary);
+    transition: var(--transition-smooth);
+}
+
+.btn-outline-custom:hover {
+    background: var(--bosla-primary);
+    color: white;
+}
+
+/* RTL Adjustments */
+.ms-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
+.ms-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
+
+
+
+
+
+.navbar.fixed-top {
+    top: 40px;
+}
+
+@media (max-width: 768px) {
+    .announcement-bar {
+        font-size: 0.8rem;
+    }
+}
+
+.bosla-nav {
+    background: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.nav-link-custom {
+    color: #4a5568;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: var(--transition-smooth);
+}
+
+.nav-link-custom:hover {
+    color: var(--bosla-primary);
+    background-color: #f8faff;
+}
+
+.nav-link-custom.active {
+    background-color: var(--bosla-nav-active);
+    color: var(--bosla-primary);
+}
+
+/* إجبار القائمة على العرض الكامل */
+.dropdown-mega {
+    position: static !important; /* هذا يجعل العرض يعتمد على الـ Navbar وليس الـ li */
+}
+
+.dropdown-mega .mega-menu-wrapper {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important; /* عرض الشاشة بالكامل */
+    margin-top: 0;
+    background: rgba(10, 22, 43, 0.98);
+    /* backdrop-filter: blur(20px); */
+    border-top: 2px solid var(--bosla-gold) !important;
+    border-radius: 0; /* عرض كامل عادة لا يحتاج حواف دائرية */
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease-out;
+}
+
+.dropdown-mega:hover .mega-menu-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* تنسيق القسم الجانبي الملون */
+.bg-mega-accent {
+    background: linear-gradient(135deg, #112A62 0%, #060b1a 100%);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* أيقونة خلفية مائية للزينة */
+.bg-icon-watermark {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.03);
+    transform: rotate(-15deg);
+    z-index: 1;
+}
+
+/* تنسيق العناوين والقوائم */
+.mega-title {
+    color: var(--bosla-gold);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-align: right;
+    display: flex;
+    align-items: center;
+}
+
+.mega-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, rgba(255, 140, 0, 0.3), transparent);
+    margin-right: 15px;
+}
+
+.mega-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.mega-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mega-icon {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--bosla-gold);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    font-size: 1.3rem;
+}
+
+.mega-text span {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+}
+
+.mega-text small {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 991px) {
+    /* تجعل الـ li تسمح بظهور ما بداخلها */
+    .dropdown-mega {
+        position: relative !important;
+    }
+
+    .dropdown-mega .mega-menu-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        display: none; /* مخفية حتى يتم الضغط */
+        background: #0a162b !important;
+        border: none !important;
+        max-width: 100vw;
+    }
+
+    /* هذا الكلاس هو ما يضيفه بوتستراب عند الضغط */
+    .dropdown-mega.show .mega-menu-wrapper,
+    .dropdown-mega .mega-menu-wrapper.show {
+        display: block !important;
+    }
+
+    /* إخفاء الجزء الجانبي (دليل الشركات) في الموبايل لتقليل الزحام أو جعله بسيطاً */
+    .bg-mega-accent {
+        padding: 30px 20px !important;
+    }
+    
+    .mega-item {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+     
+     
+   body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fff !important;
+            color: var(--bosla-text-dark);
+        }
+
+        /* Header Section */
+        .course-hero {
+            background: linear-gradient(135deg, var(--bosla-primary) 0%, var(--bosla-secondary) 100%);
+            padding: 80px 0 180px;
+            color: white;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .bg-accent-glow {
+            background: rgba(0, 212, 255, 0.15);
+            color: var(--bosla-accent);
+            border: 1px solid var(--bosla-accent);
+        }
+
+        /* Sidebar Card */
+        .sticky-sidebar {
+            margin-top: -150px;
+            z-index: 100;
+            border-radius: 24px;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .drive-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #1ea362;
+            padding: 6px 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-gold {
+            background: linear-gradient(45deg, var(--bosla-gold), #ffb400);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-weight: 900;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+            color: white;
+        }
+
+        /* Steps Section */
+        .step-number {
+            width: 45px;
+            height: 45px;
+            background: var(--bosla-accent);
+            color: var(--bosla-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            margin: 0 auto 15px;
+        }
+
+        /* Form Styling */
+        .enroll-form-card {
+            border-radius: 20px;
+            border: 2px solid #eef2f6;
+        }
+
+        .form-control {
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        .form-control:focus {
+            border-color: var(--bosla-accent);
+            box-shadow: 0 0 0 0.25rem rgba(0, 212, 255, 0.1);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 991px) {
+            .sticky-sidebar {
+                margin-top: 30px;
+            }
+
+            .course-hero {
+                padding-bottom: 60px;
+                clip-path: none;
+            }
+        }
