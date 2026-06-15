@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خدمات الشركات — BOSLA AGRI BUSINESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Cairo+Play:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #080d28; --navy-mid: #0e1640; --navy-light: #16205a;
+    --gold: #c9a84c; --gold-light: #e2c06a;
+    --white: #ffffff; --text-muted: rgba(255,255,255,0.55);
+    --border: rgba(201,168,76,0.18);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Cairo', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; direction: rtl; }
+
+  /* NAV */
+  nav {
+    position: fixed; top:0; right:0; left:0; z-index:100;
+    padding: 18px 60px; display: flex; align-items: center; justify-content: space-between;
+    background: rgba(8,13,40,0.90); backdrop-filter: blur(18px); border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family:'Cairo Play',sans-serif; font-weight:700; font-size:21px; color:var(--gold); text-decoration:none; }
+  .nav-logo span { color:var(--white); }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a { font-size:14px; font-weight:500; color:var(--text-muted); text-decoration:none; transition:color .3s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--gold); }
+  .nav-cta { background:var(--gold); color:var(--navy); font-family:'Cairo',sans-serif; font-weight:700; font-size:14px; padding:10px 24px; border-radius:8px; text-decoration:none; transition:all .3s; }
+  .nav-cta:hover { background:var(--gold-light); transform:translateY(-1px); }
+
+  /* HERO */
+  .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:140px 40px 100px; overflow:hidden; }
+  .hero-bg-img {
+    position:absolute; inset:0;
+    background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1600&q=80&fit=crop&crop=center');
+    background-size:cover; background-position:center;
+    filter:brightness(0.22) saturate(0.5); z-index:0;
+  }
+  .hero-overlay {
+    position:absolute; inset:0; z-index:1;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.12) 0%, transparent 65%),
+                linear-gradient(to top, var(--navy) 0%, rgba(8,13,40,0.5) 60%, transparent 100%);
+  }
+  .hero-grid {
+    position:absolute; inset:0; z-index:1;
+    background-image: linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
+  }
+  .hero-content { position:relative; z-index:2; }
+  .hero-badge {
+    display:inline-block; border:1px solid var(--gold); color:var(--gold);
+    font-size:11px; font-weight:600; letter-spacing:3px; padding:8px 24px;
+    border-radius:100px; margin-bottom:28px; background:rgba(201,168,76,0.07);
+    animation: fadeInDown .8s ease forwards;
+  }
+  .hero h1 { font-family:'Cairo Play',sans-serif; font-size:clamp(46px,8vw,92px); font-weight:800; line-height:1.05; margin-bottom:24px; animation:fadeInUp .9s ease .1s both; }
+  .hero h1 .gold { color:var(--gold); }
+  .hero p { font-size:clamp(16px,2vw,19px); color:rgba(255,255,255,0.7); max-width:640px; margin:0 auto 48px; line-height:1.9; animation:fadeInUp .9s ease .2s both; }
+  .hero-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; animation:fadeInUp .9s ease .3s both; }
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--gold); color:var(--navy); font-family:'Cairo',sans-serif; font-weight:700; font-size:15px;
+    padding:16px 36px; border-radius:12px; text-decoration:none; transition:all .3s; border:2px solid var(--gold);
+  }
+  .btn-primary:hover { background:var(--gold-light); transform:translateY(-3px); box-shadow:0 16px 40px rgba(201,168,76,0.3); }
+  .btn-outline {
+    display:inline-flex; align-items:center; gap:10px; background:transparent; color:var(--white);
+    font-family:'Cairo',sans-serif; font-weight:600; font-size:15px; padding:16px 36px; border-radius:12px;
+    text-decoration:none; border:2px solid rgba(255,255,255,0.22); transition:all .3s;
+  }
+  .btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-3px); }
+  .scroll-hint { position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--text-muted); font-size:12px; z-index:2; animation:fadeInUp 1s ease .6s both; }
+  .scroll-line { width:1px; height:48px; background:linear-gradient(to bottom, var(--gold), transparent); animation:scrollPulse 2s ease-in-out infinite; }
+
+  /* STATS */
+  .stats-bar { background:var(--navy-mid); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:40px 60px; display:flex; justify-content:center; gap:80px; flex-wrap:wrap; }
+  .stat-item { text-align:center; opacity:0; transform:translateY(20px); transition:all .6s ease; }
+  .stat-item.visible { opacity:1; transform:translateY(0); }
+  .stat-num { font-family:'Cairo Play',sans-serif; font-size:42px; font-weight:800; color:var(--gold); line-height:1; margin-bottom:8px; }
+  .stat-label { font-size:13px; color:var(--text-muted); font-weight:500; }
+
+  /* SECTION COMMONS */
+  .section-tag { display:flex; align-items:center; gap:10px; margin-bottom:16px; opacity:0; transform:translateY(20px); transition:all .5s ease; }
+  .section-tag.visible { opacity:1; transform:translateY(0); }
+  .section-tag::before { content:''; display:inline-block; width:8px; height:8px; border-radius:50%; background:currentColor; flex-shrink:0; }
+  .section-tag span { font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase; }
+  .section-title { font-family:'Cairo Play',sans-serif; font-size:clamp(32px,5vw,52px); font-weight:800; line-height:1.15; margin-bottom:16px; opacity:0; transform:translateY(24px); transition:all .6s ease .1s; }
+  .section-title.visible { opacity:1; transform:translateY(0); }
+  .section-desc { font-size:17px; color:var(--text-muted); line-height:1.8; max-width:600px; margin-bottom:56px; opacity:0; transform:translateY(20px); transition:all .6s ease .2s; }
+  .section-desc.visible { opacity:1; transform:translateY(0); }
+  .services-divider { width:calc(100% - 120px); margin:0 60px; height:1px; background:linear-gradient(to left, transparent, var(--border), transparent); }
+
+  /* SERVICE 1 */
+  .adv-section { padding:120px 60px; max-width:1300px; margin:0 auto; }
+  .adv-hero-img { width:100%; height:300px; border-radius:24px; overflow:hidden; margin-bottom:56px; position:relative; opacity:0; transform:translateY(30px); transition:all .7s ease; border:1px solid var(--border); }
+  .adv-hero-img.visible { opacity:1; transform:translateY(0); }
+  .adv-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(0.5) saturate(0.65); transition:transform .6s ease; }
+  .adv-hero-img:hover img { transform:scale(1.04); }
+  .adv-hero-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(135deg, rgba(8,13,40,0.75) 0%, rgba(201,168,76,0.1) 100%);
+    display:flex; align-items:flex-end; padding:36px 44px;
+  }
+  .adv-hero-text h3 { font-family:'Cairo Play',sans-serif; font-size:28px; font-weight:800; margin-bottom:8px; }
+  .adv-hero-text p { font-size:14px; color:rgba(255,255,255,0.6); }
+
+  .adv-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  @media(min-width:901px){ .adv-grid { grid-template-columns:repeat(4,1fr); } }
+  .adv-card { background:var(--navy-mid); border:1px solid var(--border); border-radius:20px; overflow:hidden; opacity:0; transform:translateY(32px); transition:all .6s ease; }
+  .adv-card:hover { border-color:rgba(201,168,76,0.4); transform:translateY(-6px) !important; }
+  .adv-card.visible { opacity:1; transform:translateY(0); }
+  .adv-card-img { width:100%; height:180px; overflow:hidden; position:relative; }
+  .adv-card-img img { width:100%; height:100%; object-fit:cover; filter:brightness(0.5) saturate(0.6); transition:transform .5s ease; }
+  .adv-card:hover .adv-card-img img { transform:scale(1.07); }
+  .adv-card-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, rgba(14,22,64,0.95) 100%); }
+  .adv-card-body { padding:24px 28px 28px; }
+  .adv-card-icon { width:48px; height:48px; background:rgba(201,168,76,0.08); border-radius:12px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(201,168,76,0.2); margin-bottom:16px; }
+  .adv-card-icon svg { width:22px; height:22px; stroke:var(--gold); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .adv-card h3 { font-size:18px; font-weight:700; margin-bottom:10px; }
+  .adv-card p { font-size:13px; color:var(--text-muted); line-height:1.8; }
+
+  /* SERVICE 2 */
+  .exh-section { background:var(--navy-mid); padding:120px 0; }
+  .exh-inner { max-width:1300px; margin:0 auto; padding:0 60px; }
+  .exh-layout { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+  .exh-visual { border-radius:28px; overflow:hidden; aspect-ratio:4/3; position:relative; opacity:0; transform:translateX(-40px); transition:all .7s ease; border:1px solid var(--border); }
+  .exh-visual.visible { opacity:1; transform:translateX(0); }
+  .exh-visual img { width:100%; height:100%; object-fit:cover; filter:brightness(0.5) saturate(0.65); transition:transform .6s ease; }
+  .exh-visual:hover img { transform:scale(1.04); }
+  .exh-visual-overlay { position:absolute; inset:0; background:linear-gradient(135deg, rgba(8,13,40,0.5) 0%, rgba(201,168,76,0.07) 100%); }
+  .exh-label { position:absolute; bottom:0; right:0; left:0; background:rgba(8,13,40,0.92); backdrop-filter:blur(8px); padding:18px 28px; border-top:1px solid var(--border); font-size:13px; color:var(--gold); font-weight:600; display:flex; align-items:center; gap:10px; }
+  .pulse-dot { width:8px; height:8px; background:var(--gold); border-radius:50%; animation:pulseDot 1.5s ease-in-out infinite; }
+  .exh-features { list-style:none; display:flex; flex-direction:column; gap:20px; margin-bottom:40px; }
+  .exh-feature { display:flex; align-items:flex-start; gap:16px; opacity:0; transform:translateX(24px); transition:all .5s ease; }
+  .exh-feature.visible { opacity:1; transform:translateX(0); }
+  .exh-feature-icon { width:44px; height:44px; border-radius:12px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .exh-feature-icon svg { width:20px; height:20px; stroke:var(--gold); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .exh-feature-text h4 { font-size:16px; font-weight:700; margin-bottom:4px; }
+  .exh-feature-text p { font-size:13px; color:var(--text-muted); line-height:1.6; }
+  .social-proof { display:inline-flex; align-items:center; gap:12px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:100px; padding:10px 20px; font-size:13px; color:var(--gold); font-weight:600; margin-top:24px; }
+
+  /* SERVICE 3 */
+  .launch-section { padding:120px 60px; max-width:1300px; margin:0 auto; }
+  .launch-img-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:64px; }
+  .launch-img-card { border-radius:20px; overflow:hidden; position:relative; opacity:0; transform:translateY(30px); transition:all .6s ease; border:1px solid var(--border); }
+  .launch-img-card.visible { opacity:1; transform:translateY(0); }
+  .launch-img-card img { width:100%; height:220px; object-fit:cover; filter:brightness(0.45) saturate(0.6); transition:transform .5s ease; }
+  .launch-img-card:hover img { transform:scale(1.05); }
+  .launch-img-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(8,13,40,0.88) 0%, transparent 60%); border-radius:20px; display:flex; align-items:flex-end; padding:24px; }
+  .launch-img-overlay span { font-size:15px; font-weight:700; color:var(--gold); }
+
+  .timeline-card-img { width:100%; height:180px; overflow:hidden; border-radius:12px; margin-bottom:24px; position:relative; }
+  .timeline-card-img img { width:100%; height:100%; object-fit:cover; filter:brightness(0.45) saturate(0.6); transition:transform .5s ease; }
+  .timeline-content:hover .timeline-card-img img { transform:scale(1.04); }
+  .timeline-card-img-overlay { position:absolute; inset:0; background:linear-gradient(to top, rgba(8,13,40,0.85) 0%, transparent 55%); display:flex; align-items:flex-end; padding:16px 20px; border-radius:12px; }
+  .timeline-card-img-overlay span { font-size:12px; font-weight:700; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
+  .launch-timeline::before { content:''; position:absolute; top:0; bottom:0; right:28px; width:2px; background:linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1)); }
+  .timeline-phase { display:grid; grid-template-columns:auto 1fr; gap:40px; align-items:start; padding-bottom:60px; opacity:0; transform:translateY(32px); transition:all .6s ease; }
+  .timeline-phase.visible { opacity:1; transform:translateY(0); }
+  .timeline-phase:last-child { padding-bottom:0; }
+  .timeline-marker { width:58px; height:58px; border-radius:50%; background:var(--navy); border:2px solid var(--gold); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; flex-shrink:0; box-shadow:0 0 0 6px var(--navy); }
+  .timeline-marker span { font-family:'Cairo Play',sans-serif; font-size:20px; font-weight:800; color:var(--gold); line-height:1; }
+  .timeline-content { background:var(--navy-mid); border:1px solid var(--border); border-radius:20px; padding:36px 40px; transition:all .3s; }
+  .timeline-content:hover { border-color:rgba(201,168,76,0.35); transform:translateX(-6px); }
+  .phase-label { font-size:11px; font-weight:700; letter-spacing:3px; color:var(--gold); margin-bottom:12px; text-transform:uppercase; }
+  .timeline-content h3 { font-family:'Cairo Play',sans-serif; font-size:26px; font-weight:800; margin-bottom:14px; }
+  .timeline-content p { font-size:14px; color:var(--text-muted); line-height:1.85; margin-bottom:20px; }
+  .phase-tags { display:flex; flex-wrap:wrap; gap:8px; }
+  .phase-tag { background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); border-radius:100px; padding:5px 14px; font-size:12px; color:var(--gold); font-weight:500; }
+
+  /* FINAL CTA */
+  .final-cta { position:relative; text-align:center; border-top:1px solid var(--border); border-bottom:1px solid var(--border); overflow:hidden; }
+  .final-cta-img { position:absolute; inset:0; background-image:url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1600&q=80&fit=crop'); background-size:cover; background-position:center; filter:brightness(0.15) saturate(0.5); }
+  .final-cta-content { position:relative; z-index:2; padding:100px 60px; background:radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.09) 0%, transparent 70%); }
+  .final-cta h2 { font-family:'Cairo Play',sans-serif; font-size:clamp(32px,5vw,56px); font-weight:800; margin-bottom:20px; opacity:0; transform:translateY(24px); transition:all .6s ease; }
+  .final-cta h2.visible { opacity:1; transform:translateY(0); }
+  .final-cta p { font-size:18px; color:var(--text-muted); margin-bottom:48px; line-height:1.8; opacity:0; transform:translateY(20px); transition:all .6s ease .1s; }
+  .final-cta p.visible { opacity:1; transform:translateY(0); }
+  .cta-buttons { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:0; transform:translateY(20px); transition:all .6s ease .2s; }
+  .cta-buttons.visible { opacity:1; transform:translateY(0); }
+  .btn-whatsapp { display:inline-flex; align-items:center; gap:12px; background:#25D366; color:white; font-family:'Cairo',sans-serif; font-weight:700; font-size:15px; padding:18px 40px; border-radius:12px; text-decoration:none; transition:all .3s; }
+  .btn-whatsapp:hover { background:#22c35c; transform:translateY(-3px); box-shadow:0 16px 40px rgba(37,211,102,0.3); }
+
+  footer { text-align:center; padding:40px 60px; font-size:13px; color:var(--text-muted); border-top:1px solid var(--border); }
+  footer a { color:var(--gold); text-decoration:none; }
+
+  @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeInUp   { from{opacity:0;transform:translateY(30px);}  to{opacity:1;transform:translateY(0);} }
+  @keyframes scrollPulse { 0%,100%{opacity:.3;} 50%{opacity:1;} }
+  @keyframes pulseDot { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.5);opacity:.6;} }
+
+  @media (max-width:900px) {
+    nav { padding:16px 24px; }
+    .nav-links { display:none; }
+    .adv-section, .launch-section { padding:80px 24px; }
+    .adv-grid { grid-template-columns:1fr 1fr !important; }
+    .exh-section { padding:80px 0; }
+    .exh-inner { padding:0 24px; }
+    .exh-layout { grid-template-columns:1fr; gap:40px; }
+    .exh-visual { transform:none !important; }
+    .launch-img-row { grid-template-columns:1fr; }
+    .stats-bar { padding:32px 24px; gap:40px; }
+    .final-cta-content { padding:80px 24px; }
+    footer { padding:32px 24px; }
+    .services-divider { width:calc(100% - 48px); margin:0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://boslaagri.com" class="nav-logo">BOSLA <span>AGRI BUSINESS</span></a>
+  <ul class="nav-links">
+    <li><a href="#">الرئيسية</a></li>
+    <li><a href="#">من نحن</a></li>
+    <li><a href="#" class="active">خدمات الشركات</a></li>
+    <li><a href="#">أكاديمية</a></li>
+    <li><a href="#">تواصل</a></li>
+  </ul>
+  <a href="https://wa.me/201006801168" class="nav-cta">تواصل معنا</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">BOSLA AGRI BUSINESS — خدمات الشركات</div>
+    <h1>شريكك المتكامل<br>في <span class="gold">النمو والانتشار</span></h1>
+    <p>من الدعاية والإعلان إلى إطلاق المنتجات وإدارة المعارض — حلول متكاملة مصممة خصيصاً للشركات الزراعية والبيطرية في مصر.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/201006801168" class="btn-primary">ابدأ مشروعك ←</a>
+      <a href="#adv" class="btn-outline">استعرض الخدمات</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>اسحب للأسفل</span></div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">+٥٠</div><div class="stat-label">شركة تعمل معنا</div></div>
+  <div class="stat-item"><div class="stat-num">٦</div><div class="stat-label">مواسم مؤتمرات ناجحة</div></div>
+  <div class="stat-item"><div class="stat-num">+١٠٠</div><div class="stat-label">منتج تم إطلاقه</div></div>
+  <div class="stat-item"><div class="stat-num">٣</div><div class="stat-label">مجلات متخصصة</div></div>
+</div>
+
+<!-- ═══ SERVICE 1: ADVERTISING ═══ -->
+<section class="adv-section" id="adv">
+  <div class="section-tag" style="color:var(--white)"><span>الخدمة الأولى</span></div>
+  <h2 class="section-title">الدعاية والإعلان<br><span style="color:var(--gold)">والمطبوعات</span></h2>
+  <p class="section-desc">حلول تسويقية متكاملة تجمع الإبداع بالاستراتيجية — من بناء الهوية البصرية إلى الحضور الرقمي الكامل.</p>
+
+  <div class="adv-hero-img">
+    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=80&fit=crop" alt="دعاية وإعلان" loading="lazy">
+    <div class="adv-hero-overlay">
+      <div class="adv-hero-text">
+        <h3>محتوى يصل للعملاء الصح</h3>
+        <p>استراتيجيات تسويقية مبنية على فهم عميق لقطاع الزراعة والبيطرة في مصر</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="adv-grid">
+    <div class="adv-card">
+      <div class="adv-card-img">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=75&fit=crop" alt="سوشيال ميديا" loading="lazy">
+      </div>
+      <div class="adv-card-body">
+        <div class="adv-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <h3>إدارة السوشيال ميديا</h3>
+        <p>استراتيجية محتوى شهرية، تصميم منشورات، وكوبي رايتينج متخصص في القطاع الزراعي والبيطري.</p>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-card-img">
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=75&fit=crop" alt="فيديو وموشن" loading="lazy">
+      </div>
+      <div class="adv-card-body">
+        <div class="adv-card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3>فيديو وموشن جرافيك</h3>
+        <p>إنتاج فيديوهات تعريفية وإعلانية وموشن جرافيك يعكس قيمة منتجاتك وخدماتك بشكل احترافي.</p>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-card-img">
+        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=600&q=75&fit=crop" alt="مطبوعات" loading="lazy">
+      </div>
+      <div class="adv-card-body">
+        <div class="adv-card-icon">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </div>
+        <h3>المطبوعات والتصميم</h3>
+        <p>بروشورات، كتالوجات، فلايرز، وبانرات — تصميم احترافي مع الإشراف على الطباعة والتوزيع.</p>
+      </div>
+    </div>
+    <div class="adv-card">
+      <div class="adv-card-img">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=75&fit=crop" alt="هوية بصرية" loading="lazy">
+      </div>
+      <div class="adv-card-body">
+        <div class="adv-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M3.05 11a9 9 0 1 0 .5-2.5"/></svg>
+        </div>
+        <h3>الهوية البصرية والبراندينج</h3>
+        <p>شعار، ألوان، فونت، ولغة بصرية موحدة على كل المنصات — هوية متكاملة لشركتك.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <a href="https://wa.me/201006801168?text=مرحباً، أريد الاستفسار عن خدمات الدعاية والإعلان" class="btn-primary">اطلب عرض سعر ←</a>
+  </div>
+</section>
+
+<div class="services-divider"></div>
+
+<!-- ═══ SERVICE 2: EXHIBITIONS ═══ -->
+<div class="exh-section" id="exh">
+  <div class="exh-inner">
+    <div class="exh-layout">
+      <div class="exh-visual">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80&fit=crop" alt="مؤتمرات ومعارض" loading="lazy">
+        <div class="exh-visual-overlay"></div>
+        <div class="exh-label">
+          <span style="color:var(--gold);font-size:16px;line-height:1">—</span>
+          <span>مثال حي: BOSLA كاريير — الموسم السادس — أغسطس ٢٠٢٦</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-tag" style="color:var(--white)"><span>الخدمة الثانية</span></div>
+        <h2 class="section-title">المعارض<br><span style="color:var(--gold)">والمؤتمرات</span></h2>
+        <p class="section-desc" style="margin-bottom:40px;">نخطط وننفذ تجربة فعاليتك من الألف إلى الياء — من تصميم البوث إلى التغطية الإعلامية الكاملة.</p>
+        <ul class="exh-features">
+          <li class="exh-feature">
+            <div class="exh-feature-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="exh-feature-text"><h4>تصميم وتجهيز البوثات</h4><p>بوثات بجرافيك احترافي، إضاءة، وتخطيط يجذب الزوار ويعرض منتجاتك بأفضل صورة.</p></div>
+          </li>
+          <li class="exh-feature">
+            <div class="exh-feature-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            </div>
+            <div class="exh-feature-text"><h4>برانديج الحدث الكامل</h4><p>Banners، Roll-ups، Signage، وكل مواد التصميم بهوية بصرية موحدة تعكس شركتك.</p></div>
+          </li>
+          <li class="exh-feature">
+            <div class="exh-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div class="exh-feature-text"><h4>إدارة التسجيل والحضور</h4><p>منظومة حجز وتسجيل رقمية، تتبع الحضور، وإدارة كاملة للضيافة والتنسيق اللوجستي.</p></div>
+          </li>
+          <li class="exh-feature">
+            <div class="exh-feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <div class="exh-feature-text"><h4>التغطية الإعلامية</h4><p>تصوير، فيديو، وتغطية سوشيال ميديا مباشرة — محتوى جاهز للنشر فوراً بعد الحدث.</p></div>
+          </li>
+        </ul>
+        <a href="https://wa.me/201006801168?text=مرحباً، أريد الاستفسار عن خدمات المعارض والمؤتمرات" class="btn-primary">احجز استشارة ←</a>
+        <div class="social-proof"><span>✦</span><span>BOSLA كاريير — ٦ مواسم ناجحة منذ ٢٠١٩</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="services-divider"></div>
+
+<!-- ═══ SERVICE 3: PRODUCT LAUNCH ═══ -->
+<section class="launch-section" id="launch">
+  <div class="section-tag" style="color:var(--white)"><span>الخدمة الثالثة</span></div>
+  <h2 class="section-title">إطلاق<br><span style="color:var(--gold)">المنتجات</span></h2>
+  <p class="section-desc">خطة إطلاق متكاملة تضمن حضور منتجك في السوق بقوة — من مرحلة التشويق حتى ما بعد الإطلاق.</p>
+
+  <div class="launch-img-row">
+    <div class="launch-img-card">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=75&fit=crop" alt="تخطيط إطلاق المنتج" loading="lazy">
+      <div class="launch-img-overlay"><span>التخطيط الاستراتيجي</span></div>
+    </div>
+    <div class="launch-img-card" style="transition-delay:.12s">
+      <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=75&fit=crop" alt="حفل إطلاق" loading="lazy">
+      <div class="launch-img-overlay"><span>يوم الإطلاق والضربة الإعلامية</span></div>
+    </div>
+  </div>
+
+  <div class="launch-timeline">
+    <div class="timeline-phase">
+      <div class="timeline-marker"><span>١</span></div>
+      <div class="timeline-content">
+        <div class="timeline-card-img">
+          <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=900&q=75&fit=crop" alt="مرحلة التشويق" loading="lazy">
+          <div class="timeline-card-img-overlay"><span>Pre-Launch</span></div>
+        </div>
+        <div class="phase-label">المرحلة الأولى · Pre-Launch</div>
+        <h3>التشويق وبناء التوقع</h3>
+        <p>نبني الترقب حول منتجك قبل الإطلاق بـ ٢-٤ أسابيع — حملة teaser على السوشيال ميديا، محتوى خلف الكواليس، وأسلوب الكشف التدريجي لخلق ضجة حقيقية في السوق.</p>
+        <div class="phase-tags">
+          <span class="phase-tag">Teaser Campaign</span><span class="phase-tag">Countdown</span>
+          <span class="phase-tag">محتوى خلف الكواليس</span><span class="phase-tag">استهداف مدفوع</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-marker"><span>٢</span></div>
+      <div class="timeline-content">
+        <div class="timeline-card-img">
+          <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&q=75&fit=crop" alt="يوم الإطلاق" loading="lazy">
+          <div class="timeline-card-img-overlay"><span>Launch Day</span></div>
+        </div>
+        <div class="phase-label">المرحلة الثانية · Launch Day</div>
+        <h3>يوم الإطلاق والضربة الإعلامية</h3>
+        <p>حملة إطلاق متكاملة في يوم واحد — منشورات على كل المنصات، فيديو إعلاني، بيان صحفي، وتواصل مباشر مع العملاء المستهدفين. نضمن إن منتجك يوصل للجمهور الصح.</p>
+        <div class="phase-tags">
+          <span class="phase-tag">Launch Campaign</span><span class="phase-tag">فيديو إعلاني</span>
+          <span class="phase-tag">بيان صحفي</span><span class="phase-tag">إعلانات مدفوعة</span>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-marker"><span>٣</span></div>
+      <div class="timeline-content">
+        <div class="timeline-card-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=75&fit=crop" alt="ما بعد الإطلاق" loading="lazy">
+          <div class="timeline-card-img-overlay"><span>Post-Launch</span></div>
+        </div>
+        <div class="phase-label">المرحلة الثالثة · Post-Launch</div>
+        <h3>المتابعة والتحليل والنمو</h3>
+        <p>بعد الإطلاق مش بنروح — نتابع الأداء، نحلل النتائج، ونبني خطة محتوى مستمرة تحافظ على الزخم وتحول الوعي لمبيعات حقيقية.</p>
+        <div class="phase-tags">
+          <span class="phase-tag">تحليل الأداء</span><span class="phase-tag">محتوى مستمر</span>
+          <span class="phase-tag">تقارير شهرية</span><span class="phase-tag">تحسين الحملات</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:56px;">
+    <a href="https://wa.me/201006801168?text=مرحباً، أريد الاستفسار عن خدمة إطلاق المنتجات" class="btn-primary">ابدأ مشروعك ←</a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-cta-img"></div>
+  <div class="final-cta-content">
+    <h2>مش عارف من أين تبدأ؟</h2>
+    <p>تواصل معنا وهنبني معك الخطة المناسبة لشركتك من الصفر —<br>بدون التزامات، أول استشارة مجاناً.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/201006801168?text=مرحباً، أريد الاستفسار عن خدمات الشركات" class="btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        واتساب — 01006801168
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&to=boslaagri@gmail.com&su=استفسار عن خدمات الشركات" target="_blank" class="btn-outline">راسلنا بالإيميل</a>
+    </div>
+  </div>
+</div>
+
+<footer><p>© ٢٠٢٦ BOSLA AGRI BUSINESS — جميع الحقوق محفوظة | <a href="https://boslaagri.com">boslaagri.com</a></p></footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting){ x.target.classList.add('visible'); obs.unobserve(x.target); }}), {threshold:.12});
+  document.querySelectorAll('.section-tag,.section-title,.section-desc,.adv-hero-img,.exh-visual,.launch-img-card,.final-cta h2,.final-cta p,.cta-buttons').forEach(el=>obs.observe(el));
+
+  // Stagger cards
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ document.querySelectorAll('.adv-card').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'),i*130)); o.disconnect(); }},{threshold:.1}).observe(document.querySelector('.adv-grid'));
+
+  // Stagger features
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ document.querySelectorAll('.exh-feature').forEach((f,i)=>setTimeout(()=>f.classList.add('visible'),i*130)); o.disconnect(); }},{threshold:.2}).observe(document.querySelector('.exh-features'));
+
+  // Stagger timeline
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ document.querySelectorAll('.timeline-phase').forEach((p,i)=>setTimeout(()=>p.classList.add('visible'),i*180)); o.disconnect(); }},{threshold:.1}).observe(document.querySelector('.launch-timeline'));
+
+  // Stats
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ document.querySelectorAll('.stat-item').forEach((s,i)=>setTimeout(()=>s.classList.add('visible'),i*120)); o.disconnect(); }},{threshold:.3}).observe(document.querySelector('.stats-bar'));
+
+  // Launch img cards
+  new IntersectionObserver((e,o)=>{ if(e[0].isIntersecting){ document.querySelectorAll('.launch-img-card').forEach((c,i)=>setTimeout(()=>c.classList.add('visible'),i*140)); o.disconnect(); }},{threshold:.1}).observe(document.querySelector('.launch-img-row'));
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     --bosla-accent: #00d4ff;
     --bosla-bg-light: #f8fbff;
     --bosla-text-dark: #1a2b3c;
-    --bosla-gold: #ff8c00;
+    --bosla-gold: #fad225;
     --bosla-glass: rgba(255, 255, 255, 0.9);
     --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     --wave-top: rgba(255, 255, 255, 0.2);
@@ -412,6 +412,38 @@ a {
     scroll-margin-top: 100px;
 }
 
+.service-card-btn {
+    width: 100%;
+    height: 100%;
+    min-height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+}
+
+.service-card-btn:hover,
+.service-card-btn:focus-visible {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 193, 7, 0.15);
+}
+
+.service-card-btn h4 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+
 .service-card {
     background: linear-gradient(135deg, #1a1a1a 0%, #112a62 100%);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -482,7 +514,6 @@ a {
 
 .custom-tabs .nav-link.active {
     background-color: var(--bosla-gold) !important;
-    /* لونك البرتقالي */
     border-color: var(--bosla-gold);
     color: #fff !important;
     box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
@@ -1293,14 +1324,6 @@ a {
     backdrop-filter: blur(10px);
 }
 
-:root {
-    --bosla-primary: #0a162b;
-    --bosla-gold: #ff8c00;
-    --bosla-accent: #00d4ff;
-    --white-10: rgba(255, 255, 255, 0.1);
-    --white-05: rgba(255, 255, 255, 0.05);
-}
-
 .footer-modern {
     background-color: var(--bosla-primary);
     border-top: 1px solid var(--white-10);
@@ -1333,29 +1356,29 @@ a {
 }
 
 /* Service Logos Grid */
-.services-mini-grid {
+/* .services-mini-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-}
+} */
 
 .service-logo-link {
-    background: var(--white-05);
+    background: #fff;
     padding: 15px;
     border-radius: 15px;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     border: 1px solid var(--white-10);
     transition: all 0.3s ease;
 }
 
 .service-logo-link img {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     /* filter: brightness(0) invert(1);  */
-    opacity: 0.6;
+    /* opacity: 0.6; */
 }
 
 .service-logo-link:hover {
@@ -3146,8 +3169,8 @@ body.dark-theme {
 .circle-content {
     position: relative;
     z-index: 2;
-    width: 65%;
-    height: 65%;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3394,10 +3417,6 @@ body.dark-theme {
     color: var(--bosla-gold);
 }
 
-:root {
-    --bosla-gold: #ff8c00;
-    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
 
 .events-showcase-v2 {
     background-color: #060b1a;

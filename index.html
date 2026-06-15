@@ -13,139 +13,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-:root {
-    --primary-orange: #fd7e14;
-    --dark-blue: #0a192f;
-}
 
-/* 1. ضبط السلايدر الرئيسي */
+ 
 .fullWidthSwiper {
-    width: 100%;
-    height: 100vh; /* أو 90vh حسب تصميمك */
-}
-
-/* 2. إجبار الـ Wrapper على تمكين الـ Flexbox للشرائح */
-.fullWidthSwiper .swiper-wrapper {
-    display: flex;
-}
-
-/* 3. توحيد الارتفاع لجميع الشرائح لتكون متطابقة تماماً */
-.fullWidthSwiper .swiper-slide {
-    height: 100% !important;
-    background-color: var(--dark-blue); /* الخلفية الموحدة مثل الشريحة الأخيرة */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* حاوية السلايد الداخلية تأخذ الارتفاع الكامل */
-.full-slide-box {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-/* 4. إعدادات محتوى الشريحة الموحد (Overlay) */
-.content-overlay {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-/* التحكم في حاوية الصور الداخلية لجميع الشرائح */
-.slide-image-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-/* الصور الداخلية متجاوبة ولا تملأ العرض بالكامل */
-.custom-slide-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
-}
-
-/* أحجام نصوص متجاوبة باستخدام clamp */
-.fw-black { font-weight: 900; }
-.display-1 { font-size: clamp(2.5rem, 5vw + 1rem, 5.5rem); line-height: 0.9; }
-.responsive-h2 { font-size: clamp(2rem, 4vw, 3.8rem) !important; line-height: 1.2; }
-.responsive-h3 { font-size: clamp(1.8rem, 3.5vw, 3.2rem) !important; }
-.responsive-p { font-size: clamp(1rem, 1.5vw, 1.3rem) !important; }
-
-/* تنسيق الكبسولات (الخدمات) */
-.service-pill {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 18px;
-    border-radius: 50px;
-    text-decoration: none !important;
-    transition: 0.3s ease;
-    width: fit-content;
-}
-.service-pill:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-}
-.pill-text { color: white; font-weight: 700; font-size: 1.1rem; }
-.pill-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #ffc107;
-    color: #0a192f;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-}
-
-/* أزرار التنقل */
-.custom-nav {
-    color: white !important;
-    background: rgba(255, 255, 255, 0.1);
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50%;
-    backdrop-filter: blur(5px);
-}
-.custom-nav:after { font-size: 20px !important; }
-
-/* تأثيرات الانيميشن المتوافقة مع active slide */
-.animate-text-right, .animate-laptop { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-.swiper-slide-active .animate-text-right { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
-.swiper-slide-active .animate-laptop { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
-
-/* للتجاوب مع الشاشات الصغيرة والموبايل */
-@media (max-width: 991px) {
-    .fullWidthSwiper {
-        height: 100vh; /* الحفاظ على الارتفاع الكامل حتى في الموبايل ليعمل تأثير creative بشكل سليم */
-    }
-    .content-overlay {
-        padding: 60px 20px !important;
-    }
-    .header-text {
-        text-align: center !important;
-        margin-bottom: 20px !important;
-    }
-    .service-pill {
         width: 100%;
-        justify-content: flex-end;
+        height: clamp(420px, 56.25vw, calc(100vh - 80px));
+        min-height: 420px;
+        background-color: #0a192f;
+        margin-top: 0;
     }
-    .slide-image-container {
-        max-width: 70%;
+
+    .swiper-slide {
+        height: 100%;
+        /* background-color: #0a192f; */
     }
-}
-</style>
+
+    .full-slide-link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none; 
+    }
+
+    .full-slide-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transition: transform 0.4s ease; 
+        display: block;
+    }
+
+    .full-slide-link:hover img {
+        transform: none;
+    }
+
+    .custom-nav {
+        color: white !important;
+        background: rgba(255, 255, 255, 0.1);
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50%;
+        backdrop-filter: blur(5px);
+        z-index: 10; 
+    }
+    .custom-nav:after {
+        font-size: 20px !important;
+    }
+
+    @media (max-width: 768px) {
+        .fullWidthSwiper {
+            height: auto;
+            min-height: 0;
+            aspect-ratio: 16 / 9;
+            margin-top: 0;
+        }
+
+        .custom-nav {
+            width: 38px !important;
+            height: 38px !important;
+        }
+
+        .custom-nav:after {
+            font-size: 15px !important;
+        }
+    }
+    </style>
 </head>
 
 <body class="master">
-   
+
     <nav class="navbar navbar-expand-lg sticky-top bosla-nav">
         <div class="container justify-content-between">
 
@@ -206,7 +145,7 @@
                                                         <div class="mega-icon"><i class="fas fa-microphone-alt"></i>
                                                         </div>
                                                         <div class="mega-text">
-                                                            <span>مؤتمر بوصلة كارير</span>
+                                                            <span>مؤتمر بوصلة كاريير</span>
                                                             <small>للتأهيل والتوظيف المباشر</small>
                                                         </div>
                                                     </a>
@@ -214,7 +153,7 @@
                                                         <div class="mega-icon"><i class="fas fa-graduation-cap"></i>
                                                         </div>
                                                         <div class="mega-text">
-                                                            <span>بوصلة كارير (للطلاب)</span>
+                                                            <span>بوصلة كاريير (للطلاب)</span>
                                                             <small>دعم خريجين وطلاب طب بيطري</small>
                                                         </div>
                                                     </a>
@@ -266,190 +205,43 @@
             </div>
         </div>
     </nav>
-    <!-- <header class="hero-ecosystem">
-        <div class="container text-center hero-content">
-            <h1 class="display-1 fw-bold mb-4">بوصلة</h1>
-            <p class="lead mb-5 fs-4">منصة متكاملة للأعمال البيطرية</p>
 
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-3 d-flex justify-content-center">
-                    <a href="poultrydoctor.html" class="circle-card-link">
-                        <div class="circle-card shadow-lg">
-                            <svg class="circle-svg" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="48"></circle>
-                            </svg>
-                            <div class="circle-content">
-                                <i class="fas fa-stethoscope text-orange mb-2 fa-2x"></i>
-                                <h5 class="fw-bold text-white">طبيب الدواجن بالذكاءالإصطناعى</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+   
+    
+<section class="container-fluid p-0 overflow-hidden">
+    <div class="swiper fullWidthSwiper">
+        <div class="swiper-wrapper">
 
-                <div class="col-md-3 d-flex justify-content-center">
-                    <a href="https://wa.me/201234567890?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AD%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%AA%D8%AC%D8%B1%20%D8%A7%D9%84%D8%A3%D8%AF%20%D9%88%D9%8A%D8%A9%20%D9%88%D9%85%D8%B3%D8%AA%D9%84%D8%B2%D9%85%D8%A7%D8%AA%20%D8%A7%D9%84%D9%85%D8%B2%D8%A7%D8%B1%D8%B9"
-                        target="_blank" class="text-decoration-none circle-card-link">
-                        <div class="circle-card shadow-lg">
-                            <svg class="circle-svg" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="48"></circle>
-                            </svg>
-                            <div class="circle-content">
-                                <i class="fas fa-shopping-basket text-orange mb-2 fa-2x"></i>
-                                <h5 class="fw-bold text-white">متجر الأدوية ومستلزمات المزارع</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-md-3 d-flex justify-content-center">
-                    <a href="bosla-jobs.html" class="circle-card-link">
-                        <div class="circle-card shadow-lg">
-                            <svg class="circle-svg" viewBox="0 0 100 100">
-                                <circle cx="50" cy="50" r="48"></circle>
-                            </svg>
-                            <div class="circle-content">
-                                <i class="fas fa-briefcase text-orange mb-2 fa-2x"></i>
-                                <h5 class="fw-bold text-white">منصة التوظيف</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+            <div class="swiper-slide">
+                <a href="boslacareer.html" class="full-slide-link">
+                    <img src="assets/Images/1.jpg" alt="Image 1">
+                </a>
             </div>
-        </div>
 
-        <div class="wave-mask-wrapper">
-            <div class="hero-image-fill"></div>
-        </div>
-    </header> -->
-   <section class="container-fluid p-0 overflow-hidden">
-  <div class="swiper fullWidthSwiper">
-    <div class="swiper-wrapper">
-      
-      <div class="swiper-slide">
-        <div class="full-slide-box">
-          <div class="content-overlay">
-            <div class="container-fluid px-lg-5">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 order-2 mt-4 mt-lg-0 text-center">
-                  <div class="slide-image-container animate-laptop">
-                    <img src="assets/Images/1.png" alt="Tech" class="img-fluid custom-slide-img">
-                  </div>
-                </div>
-                <div class="col-lg-7 order-1 text-lg-end text-center" dir="rtl">
-                  <div class="header-text mb-3 animate-text-right">
-                    <h1 class="display-1 fw-black text-warning mb-0">GROW YOUR</h1>
-                    <h1 class="display-1 fw-black text-white mb-2">BUSINESS</h1>
-                    <p class="lead text-white-50 responsive-p">Come join us and grow your business with the services we have right now.</p>
-                  </div>
-                </div>
-              </div>
+            <div class="swiper-slide">
+                <a href="bosla-jobs.html" class="full-slide-link">
+                    <img src="assets/Images/2.jpg" alt="Image 2">
+                </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="full-slide-box">
-          <div class="content-overlay">
-            <div class="container-fluid px-lg-5">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 order-2 mt-4 mt-lg-0 text-center">
-                  <div class="slide-image-container animate-laptop">
-                    <img src="assets/Images/2.png" alt="DR AI" class="img-fluid custom-slide-img">
-                  </div>
-                </div>
-                <div class="col-lg-7 order-1 text-lg-end text-center" dir="rtl">
-                  <div class="header-text animate-text-right d-flex justify-content-center align-items-center flex-column text-center">
-                    <h2 class="fw-bold text-white responsive-h2 mb-2">طبيب الدواجن<br> بالذكاء الاصطناعي</h2>
-                    <h3 class="fw-bold text-uppercase responsive-h3 mb-4" style="color: #FAD326;">Poultry DR AI</h3>
-                    <a href="poultrydoctor.html" class="btn btn-warning rounded-pill px-5 py-3 fw-bold text-white mt-2">زيارة المنصة</a>
-                  </div>
-                </div>
-              </div>
+            <div class="swiper-slide">
+                <a href="vetegypt_navy_pro.html" class="full-slide-link">
+                    <img src="assets/Images/3.jpg" alt="Image 3">
+                </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="full-slide-box">
-          <div class="content-overlay">
-            <div class="container-fluid px-lg-5">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 order-2 mt-4 mt-lg-0 text-center">
-                  <div class="slide-image-container animate-laptop">
-                    <img src="assets/Images/3.png" alt="Jobs" class="img-fluid custom-slide-img">
-                  </div>
-                </div>
-                <div class="col-lg-7 order-1 text-lg-end text-center" dir="rtl">
-                  <div class="header-text animate-text-right d-flex justify-content-center align-items-center flex-column text-center">
-                    <h2 class="fw-bold text-info responsive-h2 mb-0">SCALE UP <br> YOUR BUSINESS</h2>
-                    <p class="responsive-p my-2" style="color: #FAD326; font-weight: 700;">WITH</p>
-                    <h3 class="fw-bolder responsive-h3 mb-1" style="color: #ffffff;">BOSLA</h3>
-                    <h4 class="fw-bold text-info text-uppercase responsive-h2">Agri Business</h4>
-                  </div>
-                </div>
-              </div>
+            <div class="swiper-slide">
+                <a href="poultrydoctor.html" class="full-slide-link">
+                    <img src="assets/Images/4.jpg" alt="Image 4">
+                </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="swiper-slide">
-        <div class="full-slide-box">
-          <div class="content-overlay">
-            <div class="container-fluid px-lg-5">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 order-2 mt-4 mt-lg-0 text-center">
-                  <div class="slide-image-container animate-laptop">
-                    <img src="assets/Images/lab.png" alt="Laptop View" class="img-fluid custom-slide-img">
-                  </div>
-                </div>
-                <div class="col-lg-7 order-1 text-lg-end text-center" dir="rtl">
-                  <div class="header-text mb-lg-4 mb-3 animate-text-right">
-                    <h1 class="display-1 fw-black text-warning mb-0">GROW YOUR</h1>
-                    <h1 class="display-1 fw-black text-white mb-2">BUSINESS</h1>
-                    <p class="lead text-white-50 responsive-p">Come join us and grow your business with the services we have right now.</p>
-                  </div>
-                  <div class="row g-2 justify-content-lg-end justify-content-center">
-                    <div class="col-md-6 d-flex justify-content-lg-end justify-content-center">
-                      <a href="bosla-jobs.html" class="service-pill">
-                        <span class="pill-text">منصة التوظيف</span>
-                        <div class="pill-icon ms-2"><i class="fas fa-briefcase"></i></div>
-                      </a>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-lg-end justify-content-center">
-                      <a href="boslacareer.html" class="service-pill">
-                        <span class="pill-text">مؤتمر بوصلة كارير للتأهيل</span>
-                        <div class="pill-icon ms-2"><i class="fas fa-graduation-cap"></i></div>
-                      </a>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-lg-end justify-content-center">
-                      <a href="vetegypt_navy_pro.html" class="service-pill">
-                        <span class="pill-text">تحليل السوق والبورصة</span>
-                        <div class="pill-icon ms-2"><i class="fas fa-chart-bar"></i></div>
-                      </a>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-lg-end justify-content-center">
-                      <a href="#" class="service-pill">
-                        <span class="pill-text">الاستشارات الفنية والتسويقية</span>
-                        <div class="pill-icon ms-2"><i class="fas fa-lightbulb"></i></div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-
+        <div class="swiper-button-next custom-nav"></div>
+        <div class="swiper-button-prev custom-nav"></div>
     </div>
-    <div class="swiper-button-next custom-nav"></div>
-    <div class="swiper-button-prev custom-nav"></div>
-  </div>
 </section>
+    
     <section class="container py-5 portals-section" id="services">
         <div class="text-center mb-5">
             <h2 class="fw-bold text-white">منصات النظام المتكامل</h2>
@@ -478,185 +270,132 @@
 
         <div class="tab-content mt-4" id="pills-tabContent">
 
-            <div class="tab-pane fade show active" id="pills-business" role="tabpanel">
-                <div class="row g-4 justify-content-start">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-jobs.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-robot"></i></div> -->
-                            <h4>منصة التوظيف</h4>
-                            <!-- <div class="d-flex justify-content-between align-items-center mt-auto"> -->
-                                <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                            <!-- </div> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='boslacareer.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-vial"></i></div> -->
-                            <h4> مؤتمر بوصلة كارير للتأهيل والتوظيف</h4>
-                            <!-- <span class="text-orange fw-bold">اطلب الخدمة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='marketing-consulting.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-vial"></i></div> -->
-                            <h4>الاستشارات التسويقية والفنية</h4>
-                            <!-- <span class="text-orange fw-bold">اطلب الخدمة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='vetegypt_navy_pro.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-vial"></i></div> -->
-                            <h4>تحليل السوق البيطري والبورصة بالذكاء الاصطناعي</h4>
-                            <!-- <span class="text-orange fw-bold">اطلب الخدمة ←</span> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='marketing-research.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-vial"></i></div> -->
-                            <h4>الأبحاث التسويقية</h4>
-                            <!-- <span class="text-orange fw-bold">اطلب الخدمة ←</span> -->
-                        </div>
-                    </div>
-                </div>
+    <div class="tab-pane fade show active" id="pills-business" role="tabpanel">
+        <div class="row g-4 justify-content-start">
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-jobs.html'">
+                    <h4 class="m-0">منصة التوظيف</h4>
+                </button>
             </div>
-
-            <div class="tab-pane fade" id="pills-farmers" role="tabpanel">
-                <div class="row g-4 justify-content-start">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="comingSoon()">
-                            <!-- <div class="card-icon"><i class="fas fa-vial"></i></div> -->
-                            <h4>خدمات المزارع</h4>
-                            <!-- <span class="text-orange fw-bold">اطلب الخدمة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='poultry-doctor.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-robot"></i></div> -->
-                            <h4>طبيب الدواجن بالذكاء الاصطناعي</h4>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
-                                <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                                <!-- <span class="badge rounded-pill bg-info-soft text-info">ذكاء اصطناعي</span> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="comingSoon()">
-                            <!-- <div class="card-icon"><i class="fas fa-globe-americas"></i></div> -->
-                            <h4>بيع وشراء وتأجير مزارع وأدوات مستعملة</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <a href="gromedia-landing.html">
-                            <div class="service-card align-items-center justify-content-center text-center">
-                                <!-- <div class="card-icon"><i class="fas fa-book"></i></div> -->
-                                <h4>دليل جروميديا</h4>
-                                <div class="d-flex justify-content-between align-items-center mt-auto">
-                                    <!-- <span class="text-orange fw-bold">معرفة المزيد ←</span> -->
-                                    <!-- <span class="badge rounded-pill bg-info-soft text-info">اطلبة الان</span> -->
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='boslacareer.html'">
+                    <h4 class="m-0">مؤتمر بوصلة كاريير للتأهيل والتوظيف</h4>
+                </button>
             </div>
-
-            <div class="tab-pane fade" id="pills-shared" role="tabpanel">
-                <div class="row g-4 justify-content-start">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="comingSoon()">
-                            <!-- <div class="card-icon"><i class="fas fa-user-tie"></i></div> -->
-                            <h4>المتجر البيطري الشامل</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="comingSoon()">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>الكتب والمجلات والنشرات العلمية</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <a href="magazines.html">
-                            <div class="service-card align-items-center justify-content-center text-center">
-                                <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                                <h4>المجلات</h4>
-                                <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-academy.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>أكاديمية بوصلة</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-ticket.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>بوصلة كارير لطلاب وخريجين طب بيطرى</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-podcast.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>بودكاست بوصلة</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-jobs.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-robot"></i></div> -->
-                            <h4>منصة التوظيف</h4>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
-                                <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='marketing-consulting.html'">
+                    <h4 class="m-0">الاستشارات التسويقية والفنية</h4>
+                </button>
             </div>
-
-            <div class="tab-pane fade" id="pills-improve" role="tabpanel">
-                <div class="row g-4 justify-content-start">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-academy.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>أكاديمية بوصلة</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-ticket.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>بوصلة كارير لطلاب وخريجين طب بيطرى</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-podcast.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-graduation-cap"></i></div> -->
-                            <h4>بودكاست بوصلة</h4>
-                            <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="service-card align-items-center justify-content-center text-center" onclick="window.location.href='bosla-jobs.html'">
-                            <!-- <div class="card-icon"><i class="fas fa-robot"></i></div> -->
-                            <h4>منصة التوظيف</h4>
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
-                                <!-- <span class="text-orange fw-bold">زيارة المنصة ←</span> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='vetegypt_navy_pro.html'">
+                    <h4 class="m-0">تحليل السوق البيطري والبورصة بالذكاء الاصطناعي</h4>
+                </button>
             </div>
-
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='marketing-research.html'">
+                    <h4 class="m-0">الأبحاث التسويقية</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='corporate-services.html'">
+                    <h4 class="m-0">خدمات الدعاية والاعلان والمطبوعات</h4>
+                </button>
+            </div>
         </div>
+    </div>
+
+    <div class="tab-pane fade" id="pills-farmers" role="tabpanel">
+        <div class="row g-4 justify-content-start">
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="comingSoon()">
+                    <h4 class="m-0">خدمات المزارع</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='poultry-doctor.html'">
+                    <h4 class="m-0">طبيب الدواجن بالذكاء الاصطناعي</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="comingSoon()">
+                    <h4 class="m-0">بيع وشراء وتأجير مزارع وأدوات مستعملة</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='gromedia-landing.html'">
+                    <h4 class="m-0">دليل جروميديا</h4>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="pills-shared" role="tabpanel">
+        <div class="row g-4 justify-content-start">
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="comingSoon()">
+                    <h4 class="m-0">المتجر البيطري الشامل</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="comingSoon()">
+                    <h4 class="m-0">الكتب والمجلات والنشرات العلمية</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='magazines.html'">
+                    <h4 class="m-0">المجلات</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-academy.html'">
+                    <h4 class="m-0">أكاديمية بوصلة</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-ticket.html'">
+                    <h4 class="m-0">بوصلة كاريير لطلاب وخريجين طب بيطرى</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-podcast.html'">
+                    <h4 class="m-0">بودكاست بوصلة</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-jobs.html'">
+                    <h4 class="m-0">منصة التوظيف</h4>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="pills-improve" role="tabpanel">
+        <div class="row g-4 justify-content-start">
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-academy.html'">
+                    <h4 class="m-0">أكاديمية بوصلة</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-ticket.html'">
+                    <h4 class="m-0">بوصلة كاريير لطلاب وخريجين طب بيطرى</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-podcast.html'">
+                    <h4 class="m-0">بودكاست بوصلة</h4>
+                </button>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <button type="button" class="service-card-btn" onclick="window.location.href='bosla-jobs.html'">
+                    <h4 class="m-0">منصة التوظيف</h4>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
     </section>
 
     <section class="nexus-gateway py-5 overflow-hidden">
@@ -1405,11 +1144,10 @@
                                 <div class="col-12">
                                     <h6 class="text-white fw-bold mb-4 mega-footer-title text-center text-lg-start">
                                         خدماتنا الرقمية</h6>
-                                    <div
-                                        class="services-mini-grid d-flex flex-wrap justify-content-center justify-content-lg-start gap-2">
+                                    <div class=" d-flex justify-content-between gap-2">
                                         <a href="#" class="service-logo-link" title="طبيب الدواجن"><img
-                                                src="assets/Images/p1.png" alt="AI Doctor"></a>
-                                        <a href="#" class="service-logo-link" title="بورصة بوصلة"><img
+                                                src="assets/Images/p10.png" alt="Bosla"></a>
+                                        <a href="#" class="service-logo-link" title="بوصلة كاريير"><img
                                                 src="assets/Images/p2.png" alt="Market"></a>
                                         <a href="#" class="service-logo-link" title="منصة التوظيف"><img
                                                 src="assets/Images/p3.png" alt="Jobs"></a>
@@ -1470,35 +1208,35 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
- document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.fullWidthSwiper', {
-        loop: true,
-        speed: 1000,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        effect: 'creative',
-        creativeEffect: {
-            prev: {
-                shadow: true,
-                translate: ["-20%", 0, -1],
-            },
-            next: {
-                translate: ["100%", 0, 0],
-            },
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-    });
-});
-</script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const swiper = new Swiper('.fullWidthSwiper', {
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: 'creative',
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-20%", 0, -1],
+                    },
+                    next: {
+                        translate: ["100%", 0, 0],
+                    },
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        });
+    </script>
 
 
 </body>
